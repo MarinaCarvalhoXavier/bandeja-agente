@@ -1,5 +1,6 @@
 import "./bandeja.css";
 import { AvisaAltura } from "@/components/AvisaAltura";
+import { SomDoPai } from "@/components/BotaoSom";
 import { PaginaBandeja, AbasBandeja } from "@/components/PaginaBandeja";
 
 // ?embed=1: as abas sem o cabeçalho e o título (o portfólio já tem os dele), para aparecer dentro do portfólio.
@@ -11,6 +12,7 @@ export default async function Pagina({ searchParams }: { searchParams: Promise<{
       <div className="bj bj-embed">
         <AbasBandeja aba={q.aba ?? "prototipo"} />
         <AvisaAltura />
+        <SomDoPai />
       </div>
     );
   return <PaginaBandeja aba={q.aba ?? "prototipo"} />;

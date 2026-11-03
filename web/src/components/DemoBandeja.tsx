@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import dados from "@/dados/exemplos.json";
 import type { ResultadoTriagem } from "@/lib/agente/triagem";
 import type { Pedido } from "@/lib/regras/tipos";
+import { tocar } from "@/lib/som";
 
 const brl = (v: number) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const agora = () => new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
@@ -49,6 +50,19 @@ export function DemoBandeja() {
   const [texto, setTexto] = useState("");
   const [res, setRes] = useState<{ r: ResultadoTriagem; origem: "gravado" | "vivo" } | null>(null);
   const [cartoes, setCartoes] = useState(0); // quantos blocos dos bastidores já acenderam (0-3)
+  // Sons (só tocam se o som estiver ligado): mensagem enviada, resposta recebida, etapa dos bastidores.
+  const ultimaFala = useRef(""), ultimosCartoes = useRef(0);
+  useEffect(() => {
+    // Compara pelo conteúdo (e quantas falas há): marcar a mensagem como lida recria o objeto, mas não é mensagem nova.
+    const falas = msgs.filter((m): m is Extract<Msg, { tipo: "cli" | "bot" }> => m.tipo === "cli" || m.tipo === "bot"), ultima = falas[falas.length - 1];
+    const chave = ultima ? `${falas.length}|${ultima.tipo}|${ultima.texto}` : "";
+    if (ultima && falas.length > 1 && chave !== ultimaFala.current) tocar(ultima.tipo === "cli" ? "enviar" : "receber");
+    ultimaFala.current = chave;
+  }, [msgs]);
+  useEffect(() => {
+    if (cartoes > ultimosCartoes.current) tocar("cartao");
+    ultimosCartoes.current = cartoes;
+  }, [cartoes]);
   const [esperandoIA, setEsperandoIA] = useState(false);
   const [rodando, setRodando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);

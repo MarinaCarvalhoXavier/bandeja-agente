@@ -1,3 +1,4 @@
+import { BotaoSom } from "@/components/BotaoSom";
 import Link from "next/link";
 import "@/app/bandeja.css";
 import { DemoBandeja } from "@/components/DemoBandeja";
@@ -26,7 +27,7 @@ export function PaginaBandeja({ aba = "prototipo" }: { aba?: string }) {
       <header className="bj-topo">
         <Link href="/" className="bj-logo"><i>b</i>Bandeja</Link>
         <span className="bj-selo">Protótipo · dados fictícios · não representa nenhuma empresa</span>
-        <nav aria-label="Autora"><a href="https://marinaxavier.vercel.app" target="_blank" rel="noreferrer">Quem fez ↗</a></nav>
+        <nav aria-label="Autora" className="bj-topo-nav"><BotaoSom /><a href="https://marinaxavier.vercel.app" target="_blank" rel="noreferrer">Quem fez ↗</a></nav>
       </header>
       <section className="bj-abre">
         <h1>O que acontece depois que o cliente reclama</h1>
