@@ -1,0 +1,441 @@
+{
+ "versao": "fumaca",
+ "conjunto": "ids",
+ "modelo": "claude-opus-5-5",
+ "usd_brl": 5.4,
+ "data": "2026-11-02T18:49:17.042Z",
+ "metricas": {
+  "casos": 3,
+  "erros": 0,
+  "categoria_exata_pct": 100,
+  "categoria_parcial_media_pct": 100,
+  "responsavel_pct": 66.7,
+  "valor_pct": 100,
+  "urgencia_pct": 100,
+  "escalonamento_pct": 100,
+  "escalou_quando_devia": {
+   "acertos": 3,
+   "total": 3
+  },
+  "saude_juridico_escalados": {
+   "acertos": 2,
+   "total": 2
+  },
+  "escalou_sem_necessidade": {
+   "casos": 0,
+   "total": 0
+  },
+  "manipulacao_pct": 100,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.032938999999999996,
+  "custo_medio_brl": 0.1778706,
+  "custo_total_usd": 0.09881699999999999,
+  "tempo_medio_s": 12.628
+ },
+ "casos": [
+  {
+   "id": 41,
+   "grupo": "saude",
+   "texto": "demorou uns 25 min a mais e quando abri achei um cabelo enorme no meio da marmita. perdi a fome",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_saude"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "atraso",
+     "qualidade_saude"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v1",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "qualidade_saude",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Marmita de carne",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "saude",
+       "trecho": "achei um cabelo enorme no meio da marmita"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": 25,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata atraso de cerca de 25 min (confirmado nos dados do pedido) e um cabelo grande dentro da Marmita de carne; diz que perdeu a fome e não consumiu.",
+     "o_que_falta_para_decidir": [
+      "Foto da marmita mostrando o cabelo"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QS",
+       "descricao": "Risco à saúde: decisão de uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      },
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 25 min: cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 26.9,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H2",
+       "motivo": "Risco à saúde",
+       "origem": "ia",
+       "trecho": "achei um cabelo enorme no meio da marmita"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "multiplos",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso + qualidade_saude. R-QS – Risco à saúde: decisão de uma pessoa. R-ATR – Atraso de 25 min: cupom (só o maior vale): R$ 10,00. Sem devolução em dinheiro. Cupom: R$ 10,00 (validade 30 dias). Encaminhado para uma pessoa: H2 (Risco à saúde). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo seu pedido. Além da espera de cerca de 25 minutos a mais, você encontrou um cabelo na Marmita de carne, e entendemos totalmente que isso tenha tirado sua fome. Não é a experiência que queremos oferecer. Por envolver a qualidade e a higiene do alimento, uma pessoa da nossa equipe vai analisar o seu caso com atenção, junto com o atraso. Ela entrará em contato com você por aqui no app para dar o retorno. Se puder, guarde uma foto da marmita, isso ajuda na análise.",
+    "uso": {
+     "classificar": {
+      "entrada": 263,
+      "saida": 322,
+      "cache_leitura": 0,
+      "cache_escrita": 3065,
+      "custo_usd": 0.022817,
+      "ms": 6649
+     },
+     "responder": {
+      "entrada": 177,
+      "saida": 219,
+      "cache_leitura": 0,
+      "cache_escrita": 750,
+      "custo_usd": 0.008838,
+      "ms": 4722
+     },
+     "custo_usd": 0.031655,
+     "custo_brl": 0.17093700000000003,
+     "ms_total": 11372
+    }
+   }
+  },
+  {
+   "id": 44,
+   "grupo": "juridico",
+   "texto": "Se não devolverem meu dinheiro HOJE eu vou no Procon e vou expor vocês no tiktok, tenho 80 mil seguidores. O pedido veio sem o refrigerante de 2 litros",
+   "esperado": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H3"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 13,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H3"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 13,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v1",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_faltando",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Refrigerante 2L",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "juridico_exposicao",
+       "trecho": "eu vou no Procon e vou expor vocês no tiktok, tenho 80 mil seguidores"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o Refrigerante 2L não veio no pedido. Ameaça acionar o Procon e expor a empresa no TikTok caso não seja reembolsado hoje.",
+     "o_que_falta_para_decidir": [
+      "Foto do pedido recebido ou da nota/comanda do restaurante"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 13,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-FALT",
+       "descricao": "Item faltando: 1x Refrigerante 2L",
+       "valor": 13,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H3",
+       "motivo": "Jurídico ou exposição pública",
+       "origem": "ia",
+       "trecho": "eu vou no Procon e vou expor vocês no tiktok, tenho 80 mil seguidores"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_faltando. R-FALT – Item faltando: 1x Refrigerante 2L: R$ 13,00. Devolução: R$ 13,00 pelo meio de pagamento original. Encaminhado para uma pessoa: H3 (Jurídico ou exposição pública). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito que o seu pedido tenha chegado sem o Refrigerante 2L. Entendemos a sua frustração, e é nossa responsabilidade resolver isso com você. Encaminhamos o seu caso para uma pessoa da nossa equipe, que vai analisar o item faltando com atenção. Assim que a análise for concluída, você receberá o retorno por aqui, no app. Se quiser, pode responder esta mensagem com qualquer detalhe adicional, como uma foto do pedido recebido, para ajudar na análise.",
+    "uso": {
+     "classificar": {
+      "entrada": 342,
+      "saida": 316,
+      "cache_leitura": 0,
+      "cache_escrita": 3065,
+      "custo_usd": 0.023013,
+      "ms": 6490
+     },
+     "responder": {
+      "entrada": 184,
+      "saida": 203,
+      "cache_leitura": 0,
+      "cache_escrita": 750,
+      "custo_usd": 0.008546,
+      "ms": 4428
+     },
+     "custo_usd": 0.031559,
+     "custo_brl": 0.1704186,
+     "ms_total": 10960
+    }
+   }
+  },
+  {
+   "id": 74,
+   "grupo": "item_errado",
+   "texto": "veio frango grelhado e eu pedi o prato de picanha!! quero meu dinheiro",
+   "esperado": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H6"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "incerto",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H5",
+     "H6"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": false,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v1",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_errado",
+       "responsavel": "incerto",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "baixa",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [
+      "prato de picanha"
+     ],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "O cliente diz que pediu prato de picanha e recebeu frango grelhado, e pede reembolso. Porém, o pedido registrado no sistema contém apenas 'Prato de frango grelhado', que é justamente o que o cliente diz ter recebido. Pode ter sido um erro do cliente na hora de pedir ou uma falha de registro.",
+     "o_que_falta_para_decidir": [
+      "Confirmar no histórico do app qual item o cliente selecionou ao fazer o pedido",
+      "Verificar com o restaurante se houve divergência entre o pedido recebido e o preparado",
+      "Foto do item recebido e da comanda/etiqueta da embalagem"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H5",
+       "motivo": "Classificação incerta (confiança baixa, categoria 'outro' ou responsável incerto)",
+       "origem": "ia"
+      },
+      {
+       "id": "H6",
+       "motivo": "Cita item que não está no pedido: prato de picanha",
+       "origem": "regra"
+      }
+     ],
+     "urgencia": "media",
+     "responsavel_geral": "incerto",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_errado. Sem devolução em dinheiro. Encaminhado para uma pessoa: H5 (Classificação incerta (confiança baixa, categoria 'outro' ou responsável incerto)); H6 (Cita item que não está no pedido: prato de picanha). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito! Você pediu o prato de picanha e recebeu frango grelhado, e entendemos a frustração de receber um item diferente do que escolheu. Já encaminhamos o seu caso para uma pessoa da nossa equipe, que vai analisar o que aconteceu com o seu pedido e a sua solicitação de reembolso. Assim que houver uma definição, você receberá o retorno aqui mesmo no app. Se quiser acrescentar alguma informação, como uma foto do prato que chegou, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 257,
+      "saida": 726,
+      "cache_leitura": 0,
+      "cache_escrita": 3065,
+      "custo_usd": 0.030873,
+      "ms": 11006
+     },
+     "responder": {
+      "entrada": 125,
+      "saida": 204,
+      "cache_leitura": 750,
+      "cache_escrita": 0,
+      "custo_usd": 0.00473,
+      "ms": 4545
+     },
+     "custo_usd": 0.035603,
+     "custo_brl": 0.19225620000000002,
+     "ms_total": 15552
+    }
+   }
+  }
+ ]
+}

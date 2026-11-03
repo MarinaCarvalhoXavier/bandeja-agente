@@ -1,0 +1,3719 @@
+{
+ "versao": "v3",
+ "conjunto": "dev",
+ "modelo": "claude-opus-5-5",
+ "usd_brl": 5.4,
+ "data": "2026-11-02T19:03:45.296Z",
+ "metricas": {
+  "casos": 30,
+  "erros": 0,
+  "categoria_exata_pct": 100,
+  "categoria_parcial_media_pct": 100,
+  "responsavel_pct": 100,
+  "valor_pct": 96.7,
+  "urgencia_pct": 100,
+  "escalonamento_pct": 100,
+  "escalou_quando_devia": {
+   "acertos": 11,
+   "total": 11
+  },
+  "saude_juridico_escalados": {
+   "acertos": 4,
+   "total": 4
+  },
+  "escalou_sem_necessidade": {
+   "casos": 0,
+   "total": 19
+  },
+  "manipulacao_pct": 100,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.015139320000000001,
+  "custo_medio_brl": 0.08175232800000001,
+  "custo_total_usd": 0.4541796,
+  "tempo_medio_s": 8.1376
+ },
+ "casos": [
+  {
+   "id": 1,
+   "grupo": "atraso",
+   "texto": "pedi as 19h40 e chegou 21h e pouco, a previsao maxima era 20h20. ninguem avisou nada",
+   "esperado": {
+    "categorias": [
+     "atraso"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "obtido": {
+    "categorias": [
+     "atraso"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": 40,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o pedido, com previsão máxima às 20h20, chegou depois das 21h (cerca de 40 min ou mais de atraso), sem nenhum aviso. Os dados do sistema registram 45 min de atraso, o que é compatível com o relato.",
+     "o_que_falta_para_decidir": []
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 20,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 45 min: cupom (só o maior vale)",
+       "valor": 20,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "baixa",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso. R-ATR – Atraso de 45 min: cupom (só o maior vale): R$ 20,00. Sem devolução em dinheiro. Cupom: R$ 20,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pela espera! Seu pedido feito às 19h40 tinha previsão máxima para 20h20 e chegou com cerca de 45 minutos de atraso, sem nenhum aviso nosso. Isso não é o que queremos para você. Por isso, liberamos um cupom de R$ 20,00 na sua conta, válido por 30 dias. Se preferir, você pode pedir a análise de um reembolso, e uma pessoa da nossa equipe avalia. Para usar o cupom, é só aplicá-lo no seu próximo pedido na tela de pagamento.",
+    "uso": {
+     "classificar": {
+      "entrada": 268,
+      "saida": 376,
+      "cache_leitura": 0,
+      "cache_escrita": 3399,
+      "custo_usd": 0.025587,
+      "ms": 4864
+     },
+     "responder": {
+      "entrada": 244,
+      "saida": 217,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0054843999999999995,
+      "ms": 2620
+     },
+     "custo_usd": 0.0310714,
+     "custo_brl": 0.16778556,
+     "ms_total": 7486
+    }
+   }
+  },
+  {
+   "id": 4,
+   "grupo": "atraso",
+   "texto": "esperei DUAS HORAS pelo meu pedido!!! absurdo isso, nunca vi",
+   "esperado": {
+    "categorias": [
+     "atraso"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H6"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "atraso"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H6"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "media",
+     "atraso_alegado_min": 120,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente reclama de ter esperado 'duas horas' pelo pedido. O sistema registra 18 minutos de atraso e status entregue, então há divergência com o tempo alegado (pode ser o tempo total de espera, não o atraso). Não há relato de outro problema.",
+     "o_que_falta_para_decidir": [
+      "Horários de criação do pedido, previsão de entrega e entrega efetiva para conferir o tempo total de espera",
+      "Rastreamento GPS do entregador"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 18 min: cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H6",
+       "motivo": "Atraso alegado (120 min) muito acima do registrado (18 min)",
+       "origem": "regra"
+      }
+     ],
+     "urgencia": "media",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso. R-ATR – Atraso de 18 min: cupom (só o maior vale): R$ 10,00. Sem devolução em dinheiro. Cupom: R$ 10,00 (validade 30 dias). Encaminhado para uma pessoa: H6 (Atraso alegado (120 min) muito acima do registrado (18 min)). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pela espera e pela frustração com o tempo de entrega do seu pedido. Esperar além do previsto atrapalha mesmo, e a gente entende sua irritação. Para tratar seu caso com o cuidado que ele merece, uma pessoa da nossa equipe vai conferir os dados do pedido, incluindo os horários registrados, e analisar o que aconteceu com a entrega. Assim que essa análise for concluída, você vai receber o retorno aqui mesmo pelo app. Se quiser acrescentar algum detalhe, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 258,
+      "saida": 456,
+      "cache_leitura": 0,
+      "cache_escrita": 3399,
+      "custo_usd": 0.027147,
+      "ms": 5942
+     },
+     "responder": {
+      "entrada": 144,
+      "saida": 218,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.005104399999999999,
+      "ms": 2899
+     },
+     "custo_usd": 0.0322514,
+     "custo_brl": 0.17415756000000002,
+     "ms_total": 8841
+    }
+   }
+  },
+  {
+   "id": 7,
+   "grupo": "atraso",
+   "texto": "boa noite, fiz o pedido p/ o aniversario da minha filha, a previsao era 20:00 e só chegou 20:50, as pizzas tudo fria, a festa ja tinha começado, mt chato isso, a gente paga taxa justamente pra chegar no horario",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "obtido": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": 50,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o pedido (previsto para 20:00) chegou às 20:50, com as duas pizzas frias, durante a festa de aniversário da filha. Os dados do sistema confirmam 50 min de atraso, então o frio é atribuído ao atraso.",
+     "o_que_falta_para_decidir": []
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 20,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 50 min: cupom (só o maior vale)",
+       "valor": 20,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "baixa",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso + qualidade_leve. R-ATR – Atraso de 50 min: cupom (só o maior vale): R$ 20,00. Sem devolução em dinheiro. Cupom: R$ 20,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Boa noite! Sentimos muito: seu pedido para o aniversário da sua filha estava previsto para 20:00 e só chegou às 20:50, com as pizzas frias e a festa já começada. Entendemos o quanto isso atrapalhou um momento tão especial, e pedimos desculpas. Pelo atraso de 50 minutos, liberamos um cupom de R$ 20,00, válido por 30 dias, que já está na sua conta para usar no próximo pedido. Se preferir, você pode pedir a análise de um reembolso e uma pessoa da nossa equipe avalia. É só responder por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 372,
+      "saida": 271,
+      "cache_leitura": 0,
+      "cache_escrita": 3399,
+      "custo_usd": 0.023903,
+      "ms": 4007
+     },
+     "responder": {
+      "entrada": 324,
+      "saida": 228,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0060244,
+      "ms": 4633
+     },
+     "custo_usd": 0.0299274,
+     "custo_brl": 0.16160796000000002,
+     "ms_total": 8680
+    }
+   }
+  },
+  {
+   "id": 11,
+   "grupo": "qualidade_inutilizada",
+   "texto": "a pizza chegou toda amassada, os dois sabores misturados e grudados na tampa. o entregador chegou com a caixa de lado dentro da bag. nao tem como comer isso",
+   "esperado": {
+    "categorias": [
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 56.9,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 56.9,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_inutilizada",
+       "responsavel": "entregador",
+       "itens_afetados": [
+        {
+         "nome": "Pizza grande meia mussarela meia calabresa",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a pizza chegou amassada, com os sabores misturados e grudados na tampa, sem condição de consumo. Afirma que o entregador transportou a caixa de lado dentro da bag, o que indica dano no transporte.",
+     "o_que_falta_para_decidir": [
+      "Foto da pizza e da caixa como chegaram"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 56.9,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QI",
+       "descricao": "Comida sem condição de consumo: 1x Pizza grande meia mussarela meia calabresa",
+       "valor": 56.9,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_inutilizada. R-QI – Comida sem condição de consumo: 1x Pizza grande meia mussarela meia calabresa: R$ 56,90. Devolução: R$ 56,90 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pela sua pizza grande meia mussarela meia calabresa ter chegado amassada e grudada na tampa, sem condição de comer. Não é isso que queremos para o seu pedido. Já aprovamos a devolução de R$ 56,90, o valor integral da pizza, que volta pelo mesmo meio de pagamento usado na compra. Você não precisa fazer mais nada: é só acompanhar o estorno no seu meio de pagamento e, se tiver qualquer dúvida, fale com a gente aqui pelo chat.",
+    "uso": {
+     "classificar": {
+      "entrada": 339,
+      "saida": 283,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0076958,
+      "ms": 4290
+     },
+     "responder": {
+      "entrada": 298,
+      "saida": 205,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0054604,
+      "ms": 2633
+     },
+     "custo_usd": 0.0131562,
+     "custo_brl": 0.07104348,
+     "ms_total": 6923
+    }
+   }
+  },
+  {
+   "id": 14,
+   "grupo": "nao_entregue",
+   "texto": "pedido consta como entregue mas não recebi nada. moro em apartamento e ninguém interfonou",
+   "esperado": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 68.79,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 68.79,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "nao_entregue",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma que o pedido consta como entregue, mas não recebeu nada; mora em apartamento e diz que ninguém interfonou. O código de entrega não foi validado.",
+     "o_que_falta_para_decidir": [
+      "GPS/localização do entregador no momento da baixa como entregue",
+      "Verificação com a portaria do prédio",
+      "Relato do entregador sobre a entrega"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 68.79,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-NE",
+       "descricao": "Pedido não entregue: total do pedido",
+       "valor": 68.79,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: nao_entregue. R-NE – Pedido não entregue: total do pedido: R$ 68,79. Devolução: R$ 68,79 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito! O seu pedido aparece como entregue, mas você não recebeu nada, e entendemos a frustração de ficar esperando sem ninguém interfonar. Já providenciamos a devolução do valor total do pedido, R$ 68,79, que volta pelo mesmo meio de pagamento usado na compra. O prazo para aparecer depende da forma de pagamento. Se o valor não aparecer, é só responder por aqui que a gente verifica com você.",
+    "uso": {
+     "classificar": {
+      "entrada": 346,
+      "saida": 260,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0072638,
+      "ms": 3026
+     },
+     "responder": {
+      "entrada": 221,
+      "saida": 177,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0045924,
+      "ms": 3630
+     },
+     "custo_usd": 0.0118562,
+     "custo_brl": 0.06402348000000001,
+     "ms_total": 6657
+    }
+   }
+  },
+  {
+   "id": 17,
+   "grupo": "nao_entregue",
+   "texto": "Meu pedido de mercado nunca chegou. Quase 200 reais de compras e nada, e o app diz que foi entregue",
+   "esperado": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H1"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 195.8,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H1"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 195.8,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "nao_entregue",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma que o pedido de mercado (cerca de R$ 200) nunca chegou, embora o app mostre status 'entregue'. O código de entrega não foi validado.",
+     "o_que_falta_para_decidir": [
+      "GPS/localização do entregador no momento da marcação de entrega",
+      "Foto ou comprovante de entrega registrado pelo entregador",
+      "Versão do entregador sobre a entrega"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 195.8,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-NE",
+       "descricao": "Pedido não entregue: total do pedido",
+       "valor": 195.8,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H1",
+       "motivo": "Valor acima de R$ 100,00",
+       "origem": "regra"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: nao_entregue. R-NE – Pedido não entregue: total do pedido: R$ 195,80. Devolução: R$ 195,80 pelo meio de pagamento original. Encaminhado para uma pessoa: H1 (Valor acima de R$ 100,00). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito por isso. Você esperava suas compras de mercado e elas não chegaram, mesmo com o app mostrando o pedido como entregue. Entendo a frustração, ainda mais numa compra desse tamanho. Seu caso já foi encaminhado para uma pessoa da nossa equipe, que vai analisar o que aconteceu com a entrega desse pedido. Você vai receber a resposta por aqui mesmo, no app. Se lembrar de algum detalhe que ajude, como o horário em que estava em casa, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 489,
+      "saida": 269,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0080158,
+      "ms": 3452
+     },
+     "responder": {
+      "entrada": 156,
+      "saida": 209,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.004972399999999999,
+      "ms": 2823
+     },
+     "custo_usd": 0.012988199999999998,
+     "custo_brl": 0.07013628,
+     "ms_total": 6276
+    }
+   }
+  },
+  {
+   "id": 21,
+   "grupo": "item_errado",
+   "texto": "pedi x-tudo e veio x-salada. nada a ver",
+   "esperado": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 32.9,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 32.9,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_errado",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "X-tudo",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente pediu 1 X-tudo e afirma ter recebido um X-salada no lugar. Item errado, sem menção a atraso ou problema de saúde.",
+     "o_que_falta_para_decidir": [
+      "Foto do lanche recebido"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 32.9,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ERR",
+       "descricao": "Item errado (valor inteiro): 1x X-tudo",
+       "valor": 32.9,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_errado. R-ERR – Item errado (valor inteiro): 1x X-tudo: R$ 32,90. Devolução: R$ 32,90 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Poxa, sentimos muito! Você esperava seu X-tudo e recebeu outro lanche, entendemos a frustração. Já resolvemos: vamos devolver o valor integral do X-tudo, R$ 32,90, pelo mesmo meio de pagamento usado no pedido. Agora é só acompanhar o estorno por esse meio de pagamento. Se precisar de mais alguma coisa, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 241,
+      "saida": 233,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0063038,
+      "ms": 2623
+     },
+     "responder": {
+      "entrada": 225,
+      "saida": 167,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0044084,
+      "ms": 3032
+     },
+     "custo_usd": 0.0107122,
+     "custo_brl": 0.05784588,
+     "ms_total": 5656
+    }
+   }
+  },
+  {
+   "id": 24,
+   "grupo": "item_errado",
+   "texto": "Esse pedido não é meu. Veio o pedido de outra pessoa, tem até outro nome escrito na sacola",
+   "esperado": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 53.9,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 53.9,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_errado",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo frango frito",
+         "quantidade": 1
+        },
+        {
+         "nome": "Refrigerante 600ml",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma ter recebido o pedido de outra pessoa, com outro nome escrito na sacola; nenhum dos itens pedidos (Combo frango frito e Refrigerante 600ml) teria chegado.",
+     "o_que_falta_para_decidir": [
+      "Foto da sacola com o nome de outra pessoa e dos itens recebidos"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 53.9,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ERR",
+       "descricao": "Item errado (valor inteiro): 1x Combo frango frito",
+       "valor": 45.9,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-ERR",
+       "descricao": "Item errado (valor inteiro): 1x Refrigerante 600ml",
+       "valor": 8,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_errado. R-ERR – Item errado (valor inteiro): 1x Combo frango frito: R$ 45,90. R-ERR – Item errado (valor inteiro): 1x Refrigerante 600ml: R$ 8,00. Devolução: R$ 53,90 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito por isso! Receber o pedido de outra pessoa é muito frustrante, e pedimos desculpas. Como o Combo frango frito (R$ 45,90) e o Refrigerante 600ml (R$ 8,00) não chegaram como deveriam, vamos devolver o valor integral de R$ 53,90. O dinheiro volta pelo mesmo meio de pagamento que você usou no pedido. Você pode acompanhar a devolução na área de pedidos do app, e, se precisar de algo mais, é só nos chamar por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 307,
+      "saida": 295,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0078078,
+      "ms": 3376
+     },
+     "responder": {
+      "entrada": 299,
+      "saida": 209,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0055444,
+      "ms": 4319
+     },
+     "custo_usd": 0.0133522,
+     "custo_brl": 0.07210188000000001,
+     "ms_total": 7696
+    }
+   }
+  },
+  {
+   "id": 27,
+   "grupo": "item_faltando",
+   "texto": "faltou o refri e o molho extra que eu paguei",
+   "esperado": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 9.5,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 9.5,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_faltando",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Refrigerante lata",
+         "quantidade": 1
+        },
+        {
+         "nome": "Molho extra",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o Refrigerante lata e o Molho extra, ambos cobrados no pedido, não vieram. O lanche principal aparentemente foi entregue.",
+     "o_que_falta_para_decidir": [
+      "Foto do que foi recebido (embalagem/sacola)"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 9.5,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-FALT",
+       "descricao": "Item faltando: 1x Refrigerante lata",
+       "valor": 6,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-FALT",
+       "descricao": "Item faltando: 1x Molho extra",
+       "valor": 3.5,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_faltando. R-FALT – Item faltando: 1x Refrigerante lata: R$ 6,00. R-FALT – Item faltando: 1x Molho extra: R$ 3,50. Devolução: R$ 9,50 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Poxa, sentimos muito que o seu pedido chegou sem o Refrigerante lata e o Molho extra. Você tem toda razão: os dois itens foram pagos e não chegaram. Por isso, vamos devolver R$ 9,50 (R$ 6,00 do refrigerante e R$ 3,50 do molho) no mesmo meio de pagamento que você usou no pedido. Você não precisa fazer nada, a devolução já está encaminhada. É só acompanhar o estorno no seu meio de pagamento e, se tiver qualquer dúvida, fale com a gente aqui pelo chat.",
+    "uso": {
+     "classificar": {
+      "entrada": 325,
+      "saida": 268,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0073398000000000005,
+      "ms": 3186
+     },
+     "responder": {
+      "entrada": 258,
+      "saida": 226,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0057204,
+      "ms": 4152
+     },
+     "custo_usd": 0.013060200000000001,
+     "custo_brl": 0.07052508,
+     "ms_total": 7338
+    }
+   }
+  },
+  {
+   "id": 31,
+   "grupo": "item_incompleto",
+   "texto": "o combo veio sem a batata",
+   "esperado": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_incompleto",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo X-burguer (lanche + batata + refri)",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente informa que o Combo X-burguer chegou sem a batata; o lanche e o refrigerante vieram.",
+     "o_que_falta_para_decidir": [
+      "Foto do conteúdo recebido"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 19.95,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-INC",
+       "descricao": "Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri)",
+       "valor": 19.95,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_incompleto. R-INC – Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri): R$ 19,95. Devolução: R$ 19,95 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Poxa, sentimos muito que o seu Combo X-burguer chegou sem a batata. Não era isso que você esperava, e pedimos desculpas. Já registramos uma devolução de R$ 19,95, referente a 50% do valor do combo. O dinheiro volta pelo mesmo meio de pagamento que você usou no pedido. Agora é só acompanhar o estorno por esse meio de pagamento. Se precisar de mais alguma coisa, é só chamar a gente por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 244,
+      "saida": 235,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0063558,
+      "ms": 2441
+     },
+     "responder": {
+      "entrada": 241,
+      "saida": 186,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0048524,
+      "ms": 3861
+     },
+     "custo_usd": 0.0112082,
+     "custo_brl": 0.06052428,
+     "ms_total": 6303
+    }
+   }
+  },
+  {
+   "id": 34,
+   "grupo": "cobranca",
+   "texto": "apareceu uma cobrança de 9,90 no meu cartão de um clube de assinatura que eu nunca assinei",
+   "esperado": {
+    "categorias": [
+     "cobranca_indevida"
+    ],
+    "responsavel": "plataforma",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 9.9,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "cobranca_indevida"
+    ],
+    "responsavel": "plataforma",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 9.9,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "cobranca_indevida",
+       "responsavel": "plataforma",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma não reconhecer a cobrança de R$ 9,90 referente à assinatura mensal do clube, dizendo que nunca assinou. Os dados do pedido indicam R$ 9,90 cobrados a mais.",
+     "o_que_falta_para_decidir": [
+      "Registro de adesão à assinatura (data, dispositivo, IP, aceite dos termos)",
+      "Extrato ou fatura do cartão mostrando a cobrança"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 9.9,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-COB",
+       "descricao": "Cobrança indevida",
+       "valor": 9.9,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "plataforma",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: cobranca_indevida. R-COB – Cobrança indevida: R$ 9,90. Devolução: R$ 9,90 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo transtorno com essa cobrança de R$ 9,90 do clube de assinatura que você não reconhece. Já resolvemos: os R$ 9,90 serão devolvidos integralmente no mesmo cartão usado na cobrança. O prazo para aparecer depende da operadora do cartão. Se o valor não aparecer na sua fatura nos próximos ciclos, é só responder esta mensagem que a gente verifica para você.",
+    "uso": {
+     "classificar": {
+      "entrada": 267,
+      "saida": 287,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0074878,
+      "ms": 3684
+     },
+     "responder": {
+      "entrada": 223,
+      "saida": 173,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0045204,
+      "ms": 3657
+     },
+     "custo_usd": 0.0120082,
+     "custo_brl": 0.06484428,
+     "ms_total": 7341
+    }
+   }
+  },
+  {
+   "id": 37,
+   "grupo": "comportamento",
+   "texto": "o motoboy ficou me mandando mensagem no whatsapp depois da entrega dizendo que eu era linda. to com medo, ele sabe onde eu moro",
+   "esperado": {
+    "categorias": [
+     "comportamento_entregador"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H4"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "comportamento_entregador"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H4"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "comportamento_entregador",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "comportamento_entregador",
+       "trecho": "o motoboy ficou me mandando mensagem no whatsapp depois da entrega dizendo que eu era linda. to com medo, ele sabe onde eu moro"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata assédio: o entregador enviou mensagens pelo WhatsApp após a entrega dizendo que ela era linda, e ela afirma estar com medo porque ele sabe seu endereço. Caso grave de segurança, que deve ser tratado com prioridade.",
+     "o_que_falta_para_decidir": [
+      "Prints das mensagens recebidas no WhatsApp",
+      "Identificação do entregador responsável pela entrega do PED-1037",
+      "Número de telefone de onde partiram as mensagens"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-COMP",
+       "descricao": "Comportamento do entregador: análise por uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H4",
+       "motivo": "Comportamento do entregador",
+       "origem": "ia",
+       "trecho": "o motoboy ficou me mandando mensagem no whatsapp depois da entrega dizendo que eu era linda. to com medo, ele sabe onde eu moro"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: comportamento_entregador. R-COMP – Comportamento do entregador: análise por uma pessoa. Sem devolução em dinheiro. Encaminhado para uma pessoa: H4 (Comportamento do entregador). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito que você tenha passado por isso. Receber mensagens desse tipo depois de uma entrega não é aceitável, e entendemos totalmente o seu medo. Seu relato sobre as mensagens no WhatsApp já foi encaminhado para uma pessoa da nossa equipe, que vai analisar o caso com a seriedade que ele exige. Se você se sentir em perigo em algum momento, ligue para a polícia no 190. Como próximo passo, se puder, guarde os prints das mensagens e responda aqui para anexá-los ao seu caso.",
+    "uso": {
+     "classificar": {
+      "entrada": 276,
+      "saida": 383,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.009443799999999999,
+      "ms": 4582
+     },
+     "responder": {
+      "entrada": 170,
+      "saida": 211,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0050684,
+      "ms": 3219
+     },
+     "custo_usd": 0.0145122,
+     "custo_brl": 0.07836588,
+     "ms_total": 7801
+    }
+   }
+  },
+  {
+   "id": 41,
+   "grupo": "saude",
+   "texto": "demorou uns 25 min a mais e quando abri achei um cabelo enorme no meio da marmita. perdi a fome",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_saude"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "atraso",
+     "qualidade_saude"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "qualidade_saude",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Marmita de carne",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "saude",
+       "trecho": "achei um cabelo enorme no meio da marmita"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": 25,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata atraso de cerca de 25 minutos (confirmado pelos dados do pedido) e afirma ter encontrado um cabelo na Marmita de carne. Diz que não conseguiu comer.",
+     "o_que_falta_para_decidir": [
+      "Foto do cabelo na marmita"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QS",
+       "descricao": "Risco à saúde: decisão de uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      },
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 25 min: cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 26.9,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H2",
+       "motivo": "Risco à saúde",
+       "origem": "ia",
+       "trecho": "achei um cabelo enorme no meio da marmita"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "multiplos",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso + qualidade_saude. R-QS – Risco à saúde: decisão de uma pessoa. R-ATR – Atraso de 25 min: cupom (só o maior vale): R$ 10,00. Sem devolução em dinheiro. Cupom: R$ 10,00 (validade 30 dias). Encaminhado para uma pessoa: H2 (Risco à saúde). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito pelo que aconteceu com o seu pedido. Além da demora de cerca de 25 minutos, encontrar um cabelo na Marmita de carne é inaceitável, e entendo que tenha perdido a fome. Pedimos desculpas. Como envolve qualidade e higiene do alimento, encaminhamos o seu caso para uma pessoa da nossa equipe, que vai analisar o atraso e o problema com a marmita com todo o cuidado. Você vai receber o retorno por aqui, no app. Se tiver uma foto da marmita, pode enviar nesta conversa para ajudar na análise.",
+    "uso": {
+     "classificar": {
+      "entrada": 263,
+      "saida": 321,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0081518,
+      "ms": 4378
+     },
+     "responder": {
+      "entrada": 195,
+      "saida": 230,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.005548399999999999,
+      "ms": 3187
+     },
+     "custo_usd": 0.0137002,
+     "custo_brl": 0.07398108,
+     "ms_total": 7565
+    }
+   }
+  },
+  {
+   "id": 44,
+   "grupo": "juridico",
+   "texto": "Se não devolverem meu dinheiro HOJE eu vou no Procon e vou expor vocês no tiktok, tenho 80 mil seguidores. O pedido veio sem o refrigerante de 2 litros",
+   "esperado": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H3"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 13,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H3"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 13,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_faltando",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Refrigerante 2L",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "juridico_exposicao",
+       "trecho": "eu vou no Procon e vou expor vocês no tiktok, tenho 80 mil seguidores"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o Refrigerante 2L não veio no pedido. Ameaça acionar o Procon e expor a empresa no TikTok (alega ter 80 mil seguidores) caso não seja reembolsado hoje.",
+     "o_que_falta_para_decidir": [
+      "Foto do pedido recebido ou da embalagem/nota fiscal",
+      "Confirmação do restaurante sobre o envio do refrigerante"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 13,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-FALT",
+       "descricao": "Item faltando: 1x Refrigerante 2L",
+       "valor": 13,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H3",
+       "motivo": "Jurídico ou exposição pública",
+       "origem": "ia",
+       "trecho": "eu vou no Procon e vou expor vocês no tiktok, tenho 80 mil seguidores"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_faltando. R-FALT – Item faltando: 1x Refrigerante 2L: R$ 13,00. Devolução: R$ 13,00 pelo meio de pagamento original. Encaminhado para uma pessoa: H3 (Jurídico ou exposição pública). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito que o seu pedido tenha chegado sem o Refrigerante 2L. Entendemos a sua frustração, e é justo esperar receber tudo o que foi pedido. Já registramos o item faltando, e uma pessoa da nossa equipe vai analisar o seu caso com atenção. O próximo passo é acompanhar a resposta por aqui no chat do pedido, onde vamos falar com você sobre a solução. Se quiser acrescentar alguma informação, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 342,
+      "saida": 354,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.009127799999999998,
+      "ms": 3917
+     },
+     "responder": {
+      "entrada": 202,
+      "saida": 192,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.004816399999999999,
+      "ms": 2905
+     },
+     "custo_usd": 0.013944199999999997,
+     "custo_brl": 0.07529867999999999,
+     "ms_total": 6823
+    }
+   }
+  },
+  {
+   "id": 47,
+   "grupo": "ambiguo",
+   "texto": "a comida tava sem gosto nenhum, muito sem sal",
+   "esperado": {
+    "categorias": [
+     "qualidade_leve"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_leve"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "restaurante",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente reclama que o Escondidinho de carne seca veio sem gosto, muito sem sal. É uma questão de tempero do preparo e o prato era comestível; não há atraso nem outros problemas relatados.",
+     "o_que_falta_para_decidir": []
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QL",
+       "descricao": "Qualidade (comida aproveitável): cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "baixa",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_leve. R-QL – Qualidade (comida aproveitável): cupom (só o maior vale): R$ 10,00. Sem devolução em dinheiro. Cupom: R$ 10,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Que pena que a sua comida chegou sem sal e sem gosto, sentimos muito por isso! Como a refeição ainda dava para aproveitar, liberamos para você um cupom de R$ 10,00, válido por 30 dias, para usar no seu próximo pedido. Se preferir, você pode pedir a análise de um reembolso, e uma pessoa da nossa equipe avalia o seu caso. Para usar o cupom, é só selecioná-lo na tela de pagamento do próximo pedido. Esperamos que a próxima refeição seja bem mais saborosa!",
+    "uso": {
+     "classificar": {
+      "entrada": 247,
+      "saida": 223,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0061278,
+      "ms": 2628
+     },
+     "responder": {
+      "entrada": 230,
+      "saida": 214,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0053684,
+      "ms": 6558
+     },
+     "custo_usd": 0.0114962,
+     "custo_brl": 0.062079480000000006,
+     "ms_total": 9187
+    }
+   }
+  },
+  {
+   "id": 51,
+   "grupo": "atraso",
+   "texto": "a pizza chegou 35 min atrasada e morna pra fria. pagamos caro pra comer pizza fria",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "obtido": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": 35,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a Pizza grande pepperoni chegou com 35 min de atraso, que confere com os dados do pedido, e chegou entre morna e fria. Frio atribuído ao atraso; a pizza era consumível.",
+     "o_que_falta_para_decidir": []
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 20,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 35 min: cupom (só o maior vale)",
+       "valor": 20,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "baixa",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso + qualidade_leve. R-ATR – Atraso de 35 min: cupom (só o maior vale): R$ 20,00. Sem devolução em dinheiro. Cupom: R$ 20,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pela pizza que chegou com 35 minutos de atraso e já morna, quase fria. Não é essa a experiência que queremos te oferecer, ainda mais num pedido em que você investiu. Como forma de compensar, liberamos um cupom de R$ 20,00 na sua conta, válido por 30 dias. Se preferir, você pode pedir a análise de um reembolso pelo chat do pedido, e uma pessoa da nossa equipe vai avaliar. Para usar o cupom, é só aplicá-lo no seu próximo pedido.",
+    "uso": {
+     "classificar": {
+      "entrada": 264,
+      "saida": 258,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0068958000000000005,
+      "ms": 3434
+     },
+     "responder": {
+      "entrada": 268,
+      "saida": 210,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0054404,
+      "ms": 6519
+     },
+     "custo_usd": 0.0123362,
+     "custo_brl": 0.06661548,
+     "ms_total": 9954
+    }
+   }
+  },
+  {
+   "id": 54,
+   "grupo": "atraso",
+   "texto": "veio frio, e ainda atrasou",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_leve",
+     "atraso"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "restaurante",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente diz que o Bife acebolado com fritas chegou frio e que houve atraso, sem informar quanto. O sistema registra apenas 8 minutos de atraso, insuficiente para atribuir o frio ao transporte.",
+     "o_que_falta_para_decidir": []
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso registrado de 8 min (até 15 min: sem compensação)",
+       "valor": 0,
+       "tipo": "nenhum"
+      },
+      {
+       "regra": "R-QL",
+       "descricao": "Qualidade (comida aproveitável): cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "baixa",
+     "responsavel_geral": "multiplos",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_leve + atraso. R-ATR – Atraso registrado de 8 min (até 15 min: sem compensação). R-QL – Qualidade (comida aproveitável): cupom (só o maior vale): R$ 10,00. Sem devolução em dinheiro. Cupom: R$ 10,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito que seu pedido tenha chegado frio, não é essa a experiência que queremos oferecer. Registramos um atraso de 8 minutos na entrega e, pela comida ter chegado fora da temperatura ideal, liberamos para você um cupom de R$ 10,00, válido por 30 dias. Se preferir, você pode pedir a análise de um reembolso no lugar do cupom, e uma pessoa da nossa equipe vai avaliar. Para usar o cupom, é só aplicá-lo no seu próximo pedido aqui no app. Se quiser pedir a análise, basta responder a esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 239,
+      "saida": 376,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.009155799999999999,
+      "ms": 3805
+     },
+     "responder": {
+      "entrada": 276,
+      "saida": 232,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0059124,
+      "ms": 3003
+     },
+     "custo_usd": 0.015068199999999999,
+     "custo_brl": 0.08136828,
+     "ms_total": 6808
+    }
+   }
+  },
+  {
+   "id": 57,
+   "grupo": "qualidade_leve",
+   "texto": "chegou tudo revirado dentro da embalagem, o motoboy devia estar voando, mas deu pra comer",
+   "esperado": {
+    "categorias": [
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "baixa",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a Parmegiana de carne chegou revirada dentro da embalagem e atribui isso à condução do entregador, mas afirma que deu para comer. Não há atraso registrado no pedido.",
+     "o_que_falta_para_decidir": [
+      "Foto do prato como chegou"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QL",
+       "descricao": "Qualidade (comida aproveitável): cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "baixa",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_leve. R-QL – Qualidade (comida aproveitável): cupom (só o maior vale): R$ 10,00. Sem devolução em dinheiro. Cupom: R$ 10,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Que pena que seu pedido chegou todo revirado na embalagem. Sabemos que não é assim que você esperava receber sua comida, e pedimos desculpas por isso. Como deu para aproveitar a refeição, liberamos um cupom de R$ 10,00 na sua conta, válido por 30 dias. Se preferir, você pode pedir a análise de um reembolso em vez do cupom, e uma pessoa da nossa equipe avalia. Para usar o cupom, basta aplicá-lo no seu próximo pedido aqui no app.",
+    "uso": {
+     "classificar": {
+      "entrada": 262,
+      "saida": 231,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0063478,
+      "ms": 3963
+     },
+     "responder": {
+      "entrada": 247,
+      "saida": 203,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0052163999999999995,
+      "ms": 3552
+     },
+     "custo_usd": 0.0115642,
+     "custo_brl": 0.062446680000000004,
+     "ms_total": 7516
+    }
+   }
+  },
+  {
+   "id": 61,
+   "grupo": "qualidade_inutilizada",
+   "texto": "o bolo de aniversário chegou 30 min atrasado e todo desmontado, o entregador veio de moto com a caixa amarrada de lado",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 89.9,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "atraso",
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 89.9,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "qualidade_inutilizada",
+       "responsavel": "entregador",
+       "itens_afetados": [
+        {
+         "nome": "Bolo de chocolate 1kg",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "media",
+     "atraso_alegado_min": 30,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "O cliente relata que o bolo de aniversário chegou 30 min atrasado (o sistema confirma 30 min) e todo desmontado. Ele aponta como causa o transporte: a caixa veio amarrada de lado na moto.",
+     "o_que_falta_para_decidir": [
+      "Foto do bolo e da caixa na chegada para avaliar se o bolo ficou sem condição de consumo ou apenas com a aparência danificada"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 89.9,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QI",
+       "descricao": "Comida sem condição de consumo: 1x Bolo de chocolate 1kg",
+       "valor": 89.9,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 30 min: cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso + qualidade_inutilizada. R-QI – Comida sem condição de consumo: 1x Bolo de chocolate 1kg: R$ 89,90. R-ATR – Atraso de 30 min: cupom (só o maior vale): R$ 10,00. Devolução: R$ 89,90 pelo meio de pagamento original. Cupom: R$ 10,00 (validade 30 dias). Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito que o bolo de aniversário tenha chegado desmontado e com 30 minutos de atraso, ainda mais num dia especial. Vamos devolver R$ 89,90 referentes ao Bolo de chocolate 1kg, pelo mesmo meio de pagamento usado no pedido. Pelo atraso, você também recebe um cupom de R$ 10,00, válido por 30 dias. Se preferir, em vez do cupom, você pode pedir a análise de um reembolso, e uma pessoa da nossa equipe avalia. Agora é só acompanhar a devolução no seu meio de pagamento. O cupom já fica disponível para usar no próximo pedido.",
+    "uso": {
+     "classificar": {
+      "entrada": 277,
+      "saida": 507,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.011927799999999999,
+      "ms": 5513
+     },
+     "responder": {
+      "entrada": 350,
+      "saida": 252,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0066083999999999995,
+      "ms": 4447
+     },
+     "custo_usd": 0.0185362,
+     "custo_brl": 0.10009548,
+     "ms_total": 9961
+    }
+   }
+  },
+  {
+   "id": 64,
+   "grupo": "nao_entregue",
+   "texto": "o entregador cancelou dizendo que não achou o endereço, mas meu endereço tá certinho e ele nem me ligou",
+   "esperado": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 38.89,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 38.89,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "nao_entregue",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o entregador cancelou o pedido alegando não encontrar o endereço, sem ligar para o cliente; o cliente afirma que o endereço está correto. O status do pedido é cancelado e o código não foi validado.",
+     "o_que_falta_para_decidir": [
+      "GPS/rota do entregador no momento do cancelamento",
+      "Registro de tentativas de contato (ligações/mensagens) do entregador",
+      "Endereço cadastrado no pedido para conferir se está correto",
+      "Confirmar se houve cobrança ou se o estorno já foi processado"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 38.89,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-NE",
+       "descricao": "Pedido não entregue: total do pedido",
+       "valor": 38.89,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: nao_entregue. R-NE – Pedido não entregue: total do pedido: R$ 38,89. Devolução: R$ 38,89 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo transtorno! Seu pedido não chegou até você e sabemos como isso é frustrante, ainda mais esperando a refeição. Já decidimos devolver o valor total do pedido, R$ 38,89, que volta pelo mesmo meio de pagamento que você usou na compra. Vamos usar o seu relato para melhorar a forma como lidamos com dificuldades na entrega. Como próximo passo, é só acompanhar a devolução no seu meio de pagamento. Se precisar de qualquer ajuda, fale com a gente por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 267,
+      "saida": 320,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0081478,
+      "ms": 3285
+     },
+     "responder": {
+      "entrada": 229,
+      "saida": 213,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0053444,
+      "ms": 3828
+     },
+     "custo_usd": 0.0134922,
+     "custo_brl": 0.07285788,
+     "ms_total": 7114
+    }
+   }
+  },
+  {
+   "id": 67,
+   "grupo": "nao_entregue",
+   "texto": "A compra do mês não chegou. Foram 340 reais. Preciso de uma solução urgente",
+   "esperado": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H1"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 339.8,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "nao_entregue"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H1"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 339.8,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "nao_entregue",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma que a compra de mercado (cesta do mês, total cerca de R$ 340 com taxa) não chegou. O sistema marca o pedido como entregue, mas o código de entrega não foi validado.",
+     "o_que_falta_para_decidir": [
+      "GPS/registro do entregador no momento da entrega",
+      "Foto ou comprovante de entrega, se houver",
+      "Confirmação com o entregador sobre onde e a quem entregou"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 339.8,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-NE",
+       "descricao": "Pedido não entregue: total do pedido",
+       "valor": 339.8,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H1",
+       "motivo": "Valor acima de R$ 100,00",
+       "origem": "regra"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: nao_entregue. R-NE – Pedido não entregue: total do pedido: R$ 339,80. Devolução: R$ 339,80 pelo meio de pagamento original. Encaminhado para uma pessoa: H1 (Valor acima de R$ 100,00). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito que a sua compra do mês não tenha chegado. Sabemos o quanto isso pesa, ainda mais num pedido tão importante para a sua casa. Como o pedido não foi entregue, o seu caso já foi encaminhado para uma pessoa da nossa equipe, que vai analisar tudo com atenção. Você não precisa fazer mais nada agora. Assim que houver uma atualização, você recebe o retorno aqui mesmo, pelo app. Se quiser acrescentar alguma informação, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 262,
+      "saida": 280,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0073278,
+      "ms": 2860
+     },
+     "responder": {
+      "entrada": 145,
+      "saida": 206,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.004868399999999999,
+      "ms": 6679
+     },
+     "custo_usd": 0.012196199999999999,
+     "custo_brl": 0.06585948,
+     "ms_total": 9540
+    }
+   }
+  },
+  {
+   "id": 71,
+   "grupo": "item_errado",
+   "texto": "veio pizza média e eu paguei a grande",
+   "esperado": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 58.9,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 58.9,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_errado",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Pizza grande frango",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma que recebeu uma pizza de tamanho médio no lugar da Pizza grande frango que pediu e pagou. Pedido consta como entregue, sem atraso.",
+     "o_que_falta_para_decidir": [
+      "Foto da pizza recebida e da embalagem (com medida ou referência de tamanho)",
+      "Confirmação do restaurante sobre o tamanho enviado"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 58.9,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ERR",
+       "descricao": "Item errado (valor inteiro): 1x Pizza grande frango",
+       "valor": 58.9,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_errado. R-ERR – Item errado (valor inteiro): 1x Pizza grande frango: R$ 58,90. Devolução: R$ 58,90 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo transtorno! Você pagou pela Pizza grande de frango e ela não chegou como deveria. Pedimos desculpas por isso. Já providenciamos a devolução do valor integral do item, R$ 58,90, que volta pelo mesmo meio de pagamento usado no pedido. O prazo para o valor aparecer depende do seu banco ou operadora do cartão. Se precisar de mais alguma ajuda, é só responder por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 238,
+      "saida": 493,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0114918,
+      "ms": 5909
+     },
+     "responder": {
+      "entrada": 225,
+      "saida": 178,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0046283999999999995,
+      "ms": 3305
+     },
+     "custo_usd": 0.0161202,
+     "custo_brl": 0.08704908000000001,
+     "ms_total": 9215
+    }
+   }
+  },
+  {
+   "id": 74,
+   "grupo": "item_errado",
+   "texto": "veio frango grelhado e eu pedi o prato de picanha!! quero meu dinheiro",
+   "esperado": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H6"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_errado"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H5",
+     "H6"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 29.9,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": false,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_errado",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Prato de frango grelhado",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "baixa",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [
+      "Prato de picanha"
+     ],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente diz que pediu prato de picanha e recebeu frango grelhado, e pede reembolso. Porém o pedido registrado contém apenas 'Prato de frango grelhado', ou seja, o item recebido coincide com o que consta no sistema. Há divergência entre o relato e os dados.",
+     "o_que_falta_para_decidir": [
+      "Confirmar no histórico/carrinho do app qual prato o cliente selecionou (possível engano do cliente ao pedir)",
+      "Verificar se o valor cobrado corresponde ao prato de frango ou ao de picanha",
+      "Foto do prato recebido"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 29.9,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ERR",
+       "descricao": "Item errado (valor inteiro): 1x Prato de frango grelhado",
+       "valor": 29.9,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H5",
+       "motivo": "Classificação incerta (confiança baixa ou categoria 'outro')",
+       "origem": "ia"
+      },
+      {
+       "id": "H6",
+       "motivo": "Cita item que não está no pedido: Prato de picanha",
+       "origem": "regra"
+      }
+     ],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_errado. R-ERR – Item errado (valor inteiro): 1x Prato de frango grelhado: R$ 29,90. Devolução: R$ 29,90 pelo meio de pagamento original. Encaminhado para uma pessoa: H5 (Classificação incerta (confiança baixa ou categoria 'outro')); H6 (Cita item que não está no pedido: Prato de picanha). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sinto muito pela frustração com o seu pedido. Entendemos que receber um prato diferente do esperado é chato, ainda mais na hora da refeição. Registramos sua reclamação sobre o Prato de frango grelhado, e uma pessoa da nossa equipe vai conferir os dados do pedido e analisar o seu caso com atenção. Assim que houver uma resposta, você será avisado aqui pelo app. Se quiser, pode responder esta mensagem com fotos do que chegou e qualquer detalhe que ajude na análise.",
+    "uso": {
+     "classificar": {
+      "entrada": 257,
+      "saida": 614,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0139878,
+      "ms": 6974
+     },
+     "responder": {
+      "entrada": 161,
+      "saida": 203,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0048724,
+      "ms": 6659
+     },
+     "custo_usd": 0.0188602,
+     "custo_brl": 0.10184508,
+     "ms_total": 13633
+    }
+   }
+  },
+  {
+   "id": 77,
+   "grupo": "item_faltando",
+   "texto": "faltou o leite e metade dos ovos veio quebrada",
+   "esperado": {
+    "categorias": [
+     "item_faltando",
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 13.35,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_faltando",
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "multiplos",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 13.35,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_faltando",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Leite integral 1L",
+         "quantidade": 1
+        }
+       ]
+      },
+      {
+       "categoria": "qualidade_inutilizada",
+       "responsavel": "incerto",
+       "itens_afetados": [
+        {
+         "nome": "Ovos (dúzia)",
+         "quantidade": 0.5
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o Leite integral 1L não foi entregue e que metade da dúzia de ovos chegou quebrada. Não há indicação se a quebra ocorreu na separação/embalagem ou no transporte.",
+     "o_que_falta_para_decidir": [
+      "Foto dos ovos quebrados e da embalagem",
+      "Foto do conteúdo recebido ou nota fiscal para confirmar a ausência do leite"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 13.35,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-FALT",
+       "descricao": "Item faltando: 1x Leite integral 1L",
+       "valor": 5.9,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-QI",
+       "descricao": "Comida sem condição de consumo: 0.5x Ovos (dúzia)",
+       "valor": 7.45,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "multiplos",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_faltando + qualidade_inutilizada. R-FALT – Item faltando: 1x Leite integral 1L: R$ 5,90. R-QI – Comida sem condição de consumo: 0.5x Ovos (dúzia): R$ 7,45. Devolução: R$ 13,35 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo transtorno com o seu pedido! Já resolvemos: vamos devolver R$ 5,90 pelo Leite integral 1L que faltou e R$ 7,45 pela metade da dúzia de ovos que chegou quebrada, totalizando R$ 13,35. O valor volta pelo mesmo meio de pagamento que você usou no pedido. Agora é só acompanhar o estorno por lá e, se precisar de algo mais, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 333,
+      "saida": 460,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0112118,
+      "ms": 4615
+     },
+     "responder": {
+      "entrada": 313,
+      "saida": 187,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0051604,
+      "ms": 6292
+     },
+     "custo_usd": 0.0163722,
+     "custo_brl": 0.08840988000000001,
+     "ms_total": 10907
+    }
+   }
+  },
+  {
+   "id": 81,
+   "grupo": "cobranca",
+   "texto": "cobraram taxa de entrega mas a loja tava com entrega grátis no anúncio",
+   "esperado": {
+    "categorias": [
+     "cobranca_indevida"
+    ],
+    "responsavel": "plataforma",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 7.99,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "cobranca_indevida"
+    ],
+    "responsavel": "plataforma",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 7.99,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "cobranca_indevida",
+       "responsavel": "plataforma",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente afirma que foi cobrada taxa de entrega (R$ 7,99) embora o anúncio da loja indicasse entrega grátis. Os dados do pedido registram cobrado_a_mais de R$ 7,99, compatível com a alegação.",
+     "o_que_falta_para_decidir": [
+      "Confirmação de que a promoção de entrega grátis estava ativa no anúncio no momento do pedido (print do anúncio ou registro da campanha)"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 7.99,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-COB",
+       "descricao": "Cobrança indevida",
+       "valor": 7.99,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "plataforma",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: cobranca_indevida. R-COB – Cobrança indevida: R$ 7,99. Devolução: R$ 7,99 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Oi! Sentimos muito pela cobrança da taxa de entrega de R$ 7,99, já que o anúncio mostrava entrega grátis. Você tem razão, e isso não deveria ter acontecido. Já decidimos devolver os R$ 7,99, que voltam pelo mesmo meio de pagamento usado no pedido. Agora é só acompanhar o estorno no seu extrato ou fatura. Se tiver qualquer dúvida, é só nos chamar por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 257,
+      "saida": 291,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0075278,
+      "ms": 3200
+     },
+     "responder": {
+      "entrada": 213,
+      "saida": 185,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0047204,
+      "ms": 5507
+     },
+     "custo_usd": 0.0122482,
+     "custo_brl": 0.06614028000000001,
+     "ms_total": 8707
+    }
+   }
+  },
+  {
+   "id": 84,
+   "grupo": "cobranca",
+   "texto": "a gorjeta de 5 reais pro entregador foi cobrada 2 vezes",
+   "esperado": {
+    "categorias": [
+     "cobranca_indevida"
+    ],
+    "responsavel": "plataforma",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 5,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "cobranca_indevida"
+    ],
+    "responsavel": "plataforma",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 5,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "cobranca_indevida",
+       "responsavel": "plataforma",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a gorjeta de R$ 5 para o entregador foi cobrada duas vezes. O sistema indica cobrança a mais de R$ 5, o que é consistente com o relato.",
+     "o_que_falta_para_decidir": [
+      "Extrato ou comprovante da transação mostrando a cobrança duplicada da gorjeta"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 5,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-COB",
+       "descricao": "Cobrança indevida",
+       "valor": 5,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "plataforma",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: cobranca_indevida. R-COB – Cobrança indevida: R$ 5,00. Devolução: R$ 5,00 pelo meio de pagamento original. Decisão automática. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Oi! Sentimos muito pela cobrança em dobro da gorjeta de R$ 5,00 para o entregador. Você tem toda razão, e já resolvemos: a cobrança repetida foi identificada e os R$ 5,00 serão devolvidos pelo mesmo meio de pagamento usado no pedido. Pedimos desculpas pelo transtorno. Agora é só acompanhar a devolução no seu meio de pagamento. Se precisar de algo mais, é só falar com a gente por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 290,
+      "saida": 252,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0068798,
+      "ms": 3374
+     },
+     "responder": {
+      "entrada": 212,
+      "saida": 193,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0048763999999999995,
+      "ms": 6712
+     },
+     "custo_usd": 0.0117562,
+     "custo_brl": 0.06348348000000001,
+     "ms_total": 10086
+    }
+   }
+  },
+  {
+   "id": 87,
+   "grupo": "comportamento",
+   "texto": "o entregador fez um comentário racista sobre o meu cabelo quando eu fui pegar o pedido",
+   "esperado": {
+    "categorias": [
+     "comportamento_entregador"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H4"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "comportamento_entregador"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H4"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "comportamento_entregador",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "comportamento_entregador",
+       "trecho": "o entregador fez um comentário racista sobre o meu cabelo"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o entregador fez um comentário racista sobre o cabelo dela/dele no momento da retirada do pedido. Caso de discriminação, conduta grave do entregador, que exige tratamento prioritário e acolhimento.",
+     "o_que_falta_para_decidir": [
+      "Identificação do entregador responsável pela entrega",
+      "Relato detalhado do cliente (o que foi dito, horário)",
+      "Eventuais testemunhas, gravações ou imagens de câmera do local"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-COMP",
+       "descricao": "Comportamento do entregador: análise por uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H4",
+       "motivo": "Comportamento do entregador",
+       "origem": "ia",
+       "trecho": "o entregador fez um comentário racista sobre o meu cabelo"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: comportamento_entregador. R-COMP – Comportamento do entregador: análise por uma pessoa. Sem devolução em dinheiro. Encaminhado para uma pessoa: H4 (Comportamento do entregador). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo que você passou. Um comentário racista sobre o seu cabelo na entrega do seu pedido é inaceitável, e você não deveria ter vivido isso usando a nossa plataforma. Seu relato foi registrado e encaminhado para uma pessoa da nossa equipe, que vai analisar o caso com toda a seriedade. Se quiser, responda esta mensagem com qualquer detalhe que lembre, como o horário ou o que foi dito, para ajudar na análise. A equipe vai entrar em contato com você por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 257,
+      "saida": 342,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0085478,
+      "ms": 3669
+     },
+     "responder": {
+      "entrada": 150,
+      "saida": 208,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0049283999999999994,
+      "ms": 3349
+     },
+     "custo_usd": 0.013476199999999999,
+     "custo_brl": 0.07277148,
+     "ms_total": 7018
+    }
+   }
+  },
+  {
+   "id": 91,
+   "grupo": "saude",
+   "texto": "a maionese tava com gosto azedo, meu marido passou mal de madrugada",
+   "esperado": {
+    "categorias": [
+     "qualidade_saude"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_saude"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_saude",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Lanche com maionese da casa",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "saude",
+       "trecho": "a maionese tava com gosto azedo, meu marido passou mal de madrugada"
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a maionese da casa do lanche estava com gosto azedo e que o marido passou mal de madrugada após consumir. Possível intoxicação alimentar; caso de saúde a ser priorizado.",
+     "o_que_falta_para_decidir": [
+      "Foto do lanche/maionese, se ainda houver",
+      "Laudo ou atestado médico, caso tenha havido atendimento",
+      "Informação sobre o estado atual de saúde do marido"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QS",
+       "descricao": "Risco à saúde: decisão de uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      }
+     ],
+     "valor_referencia_pessoa": 26.9,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H2",
+       "motivo": "Risco à saúde",
+       "origem": "ia",
+       "trecho": "a maionese tava com gosto azedo, meu marido passou mal de madrugada"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_saude. R-QS – Risco à saúde: decisão de uma pessoa. Sem devolução em dinheiro. Encaminhado para uma pessoa: H2 (Risco à saúde). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo que aconteceu. Saber que a maionese da casa do seu lanche estava com gosto azedo e que seu marido passou mal de madrugada é muito sério, e esperamos que ele já esteja se sentindo melhor. Se os sintomas continuarem ou piorarem, procure atendimento médico. Por se tratar de um caso de saúde, encaminhamos sua reclamação para uma pessoa da nossa equipe, que vai analisar tudo com atenção. Você receberá o retorno por aqui. Se quiser, responda esta mensagem com mais detalhes, como os sintomas e o horário em que começaram.",
+    "uso": {
+     "classificar": {
+      "entrada": 253,
+      "saida": 354,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0087718,
+      "ms": 3722
+     },
+     "responder": {
+      "entrada": 160,
+      "saida": 237,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.005548399999999999,
+      "ms": 5890
+     },
+     "custo_usd": 0.014320199999999998,
+     "custo_brl": 0.07732908,
+     "ms_total": 9612
+    }
+   }
+  },
+  {
+   "id": 94,
+   "grupo": "juridico",
+   "texto": "Meu advogado já está ciente. O pedido chegou 50 minutos atrasado e frio.",
+   "esperado": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H3"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "obtido": {
+    "categorias": [
+     "atraso",
+     "qualidade_leve"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H3"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 20
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "atraso",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      },
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "entregador",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "juridico_exposicao",
+       "trecho": "Meu advogado já está ciente."
+      }
+     ],
+     "confianca": "alta",
+     "atraso_alegado_min": 50,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a Moqueca para 2 chegou 50 minutos atrasada e fria, o que é compatível com o atraso de 50 min registrado no sistema. Menciona que o advogado já está ciente.",
+     "o_que_falta_para_decidir": []
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 20,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-ATR",
+       "descricao": "Atraso de 50 min: cupom (só o maior vale)",
+       "valor": 20,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H3",
+       "motivo": "Jurídico ou exposição pública",
+       "origem": "ia",
+       "trecho": "Meu advogado já está ciente."
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "entregador",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: atraso + qualidade_leve. R-ATR – Atraso de 50 min: cupom (só o maior vale): R$ 20,00. Sem devolução em dinheiro. Cupom: R$ 20,00 (validade 30 dias). Encaminhado para uma pessoa: H3 (Jurídico ou exposição pública). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo seu pedido ter chegado com cerca de 50 minutos de atraso e frio. Não é essa a experiência que queremos oferecer, e entendemos sua frustração. Encaminhamos o seu caso para uma pessoa da nossa equipe, que vai analisar o atraso e a temperatura da comida com atenção. Assim que a análise for concluída, você receberá o retorno aqui mesmo pelo app. Se quiser acrescentar algum detalhe, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 256,
+      "saida": 287,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0074438,
+      "ms": 3124
+     },
+     "responder": {
+      "entrada": 172,
+      "saida": 196,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.004776399999999999,
+      "ms": 2624
+     },
+     "custo_usd": 0.0122202,
+     "custo_brl": 0.06598908,
+     "ms_total": 5748
+    }
+   }
+  },
+  {
+   "id": 97,
+   "grupo": "ambiguo",
+   "texto": "Hi, my order arrived but the burger was way smaller than in the photo. Kind of disappointed",
+   "esperado": {
+    "categorias": [
+     "outro"
+    ],
+    "responsavel": "incerto",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H5"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "outro"
+    ],
+    "responsavel": "incerto",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H5"
+    ],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v3",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "outro",
+       "responsavel": "incerto",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente (escreveu em inglês) relata que o Burger gourmet chegou bem menor do que na foto do anúncio e se diz decepcionado. Não há relato de problema com o estado da comida, de item faltando ou de atraso.",
+     "o_que_falta_para_decidir": [
+      "Foto do burger recebido para comparar com a foto do anúncio"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-OUT",
+       "descricao": "Não classificável: análise por uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H5",
+       "motivo": "Classificação incerta (confiança baixa ou categoria 'outro')",
+       "origem": "ia"
+      }
+     ],
+     "urgencia": "media",
+     "responsavel_geral": "incerto",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: outro. R-OUT – Não classificável: análise por uma pessoa. Sem devolução em dinheiro. Encaminhado para uma pessoa: H5 (Classificação incerta (confiança baixa ou categoria 'outro')). Valores acima são proposta. Regras v1 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Hi, we're sorry your burger arrived smaller than what the photo showed. We understand how disappointing that is, especially when you were looking forward to your meal. We've forwarded your case to our team, and a person will review your order and the details you shared. You don't need to do anything else for now; we'll get back to you here in the app with an answer, and if you have any photos of the burger, feel free to send them in this chat to help with the review.",
+    "uso": {
+     "classificar": {
+      "entrada": 254,
+      "saida": 247,
+      "cache_leitura": 3399,
+      "cache_escrita": 0,
+      "custo_usd": 0.0066358,
+      "ms": 3274
+     },
+     "responder": {
+      "entrada": 141,
+      "saida": 150,
+      "cache_leitura": 842,
+      "cache_escrita": 0,
+      "custo_usd": 0.0037324000000000003,
+      "ms": 4462
+     },
+     "custo_usd": 0.010368200000000001,
+     "custo_brl": 0.05598828000000001,
+     "ms_total": 7736
+    }
+   }
+  }
+ ]
+}

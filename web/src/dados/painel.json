@@ -1,0 +1,551 @@
+{
+ "modelo": "claude-opus-5-5",
+ "data_medicao": "2026-11-03T02:34:47.931Z",
+ "usd_brl": 5.4,
+ "oficial": {
+  "casos": 100,
+  "erros": 0,
+  "categoria_exata_pct": 95,
+  "categoria_parcial_media_pct": 96,
+  "responsavel_pct": 98,
+  "valor_pct": 98,
+  "urgencia_pct": 99,
+  "escalonamento_pct": 97,
+  "escalou_quando_devia": {
+   "acertos": 43,
+   "total": 44
+  },
+  "saude_juridico_escalados": {
+   "acertos": 15,
+   "total": 15
+  },
+  "escalou_sem_necessidade": {
+   "casos": 2,
+   "total": 56
+  },
+  "manipulacao_pct": 100,
+  "pago_na_hora_pct": 95,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.016197256000000004,
+  "custo_medio_brl": 0.08746518240000002,
+  "custo_total_usd": 1.6197256000000002,
+  "tempo_medio_s": 7.96474
+ },
+ "v4teste": {
+  "casos": 70,
+  "erros": 0,
+  "categoria_exata_pct": 92.9,
+  "categoria_parcial_media_pct": 95,
+  "responsavel_pct": 95.7,
+  "valor_pct": 92.9,
+  "urgencia_pct": 94.3,
+  "escalonamento_pct": 92.9,
+  "escalou_quando_devia": {
+   "acertos": 28,
+   "total": 30
+  },
+  "saude_juridico_escalados": {
+   "acertos": 12,
+   "total": 12
+  },
+  "escalou_sem_necessidade": {
+   "casos": 3,
+   "total": 40
+  },
+  "manipulacao_pct": 100,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.014686799999999996,
+  "custo_medio_brl": 0.07930871999999999,
+  "custo_total_usd": 1.0280759999999998,
+  "tempo_medio_s": 8.232585714285715
+ },
+ "v5": {
+  "casos": 70,
+  "erros": 0,
+  "categoria_exata_pct": 92.9,
+  "categoria_parcial_media_pct": 95,
+  "responsavel_pct": 95.7,
+  "valor_pct": 97.1,
+  "urgencia_pct": 95.7,
+  "escalonamento_pct": 95.7,
+  "escalou_quando_devia": {
+   "acertos": 30,
+   "total": 30
+  },
+  "saude_juridico_escalados": {
+   "acertos": 12,
+   "total": 12
+  },
+  "escalou_sem_necessidade": {
+   "casos": 3,
+   "total": 40
+  },
+  "manipulacao_pct": 100,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.014686799999999996,
+  "custo_medio_brl": 0.07930871999999999,
+  "custo_total_usd": 1.0280759999999998,
+  "tempo_medio_s": 8.232585714285715
+ },
+ "v7v16": {
+  "casos": 100,
+  "erros": 0,
+  "categoria_exata_pct": 96,
+  "categoria_parcial_media_pct": 97,
+  "responsavel_pct": 98,
+  "valor_pct": 99,
+  "urgencia_pct": 100,
+  "escalonamento_pct": 98,
+  "escalou_quando_devia": {
+   "acertos": 44,
+   "total": 44
+  },
+  "saude_juridico_escalados": {
+   "acertos": 15,
+   "total": 15
+  },
+  "escalou_sem_necessidade": {
+   "casos": 2,
+   "total": 56
+  },
+  "manipulacao_pct": 100,
+  "pago_na_hora_pct": 98,
+  "resposta_checagens_pct": 96,
+  "custo_medio_usd": 0.016197256000000004,
+  "custo_medio_brl": 0.08746518240000002,
+  "custo_total_usd": 1.6197256000000002,
+  "tempo_medio_s": 7.96474
+ },
+ "evolucao": [
+  {
+   "versao": "v1",
+   "casos": 30,
+   "erros": 0,
+   "categoria_exata_pct": 96.7,
+   "categoria_parcial_media_pct": 97.8,
+   "responsavel_pct": 86.7,
+   "valor_pct": 100,
+   "urgencia_pct": 100,
+   "escalonamento_pct": 90,
+   "escalou_quando_devia": {
+    "acertos": 11,
+    "total": 11
+   },
+   "saude_juridico_escalados": {
+    "acertos": 4,
+    "total": 4
+   },
+   "escalou_sem_necessidade": {
+    "casos": 3,
+    "total": 19
+   },
+   "manipulacao_pct": 100,
+   "resposta_checagens_pct": 93.3,
+   "custo_medio_usd": 0.013832999999999996,
+   "custo_medio_brl": 0.07469819999999998,
+   "custo_total_usd": 0.4149899999999999,
+   "tempo_medio_s": 8.689633333333333
+  },
+  {
+   "versao": "v2",
+   "casos": 30,
+   "erros": 0,
+   "categoria_exata_pct": 96.7,
+   "categoria_parcial_media_pct": 96.7,
+   "responsavel_pct": 96.7,
+   "valor_pct": 96.7,
+   "urgencia_pct": 96.7,
+   "escalonamento_pct": 96.7,
+   "escalou_quando_devia": {
+    "acertos": 10,
+    "total": 11
+   },
+   "saude_juridico_escalados": {
+    "acertos": 4,
+    "total": 4
+   },
+   "escalou_sem_necessidade": {
+    "casos": 0,
+    "total": 19
+   },
+   "manipulacao_pct": 100,
+   "resposta_checagens_pct": 100,
+   "custo_medio_usd": 0.015379506666666671,
+   "custo_medio_brl": 0.08304933600000003,
+   "custo_total_usd": 0.4613852000000001,
+   "tempo_medio_s": 8.2425
+  },
+  {
+   "versao": "v3",
+   "casos": 30,
+   "erros": 0,
+   "categoria_exata_pct": 100,
+   "categoria_parcial_media_pct": 100,
+   "responsavel_pct": 100,
+   "valor_pct": 96.7,
+   "urgencia_pct": 100,
+   "escalonamento_pct": 100,
+   "escalou_quando_devia": {
+    "acertos": 11,
+    "total": 11
+   },
+   "saude_juridico_escalados": {
+    "acertos": 4,
+    "total": 4
+   },
+   "escalou_sem_necessidade": {
+    "casos": 0,
+    "total": 19
+   },
+   "manipulacao_pct": 100,
+   "resposta_checagens_pct": 100,
+   "custo_medio_usd": 0.015139320000000001,
+   "custo_medio_brl": 0.08175232800000001,
+   "custo_total_usd": 0.4541796,
+   "tempo_medio_s": 8.1376
+  },
+  {
+   "versao": "v4",
+   "casos": 30,
+   "erros": 0,
+   "categoria_exata_pct": 100,
+   "categoria_parcial_media_pct": 100,
+   "responsavel_pct": 100,
+   "valor_pct": 96.7,
+   "urgencia_pct": 100,
+   "escalonamento_pct": 100,
+   "escalou_quando_devia": {
+    "acertos": 12,
+    "total": 12
+   },
+   "saude_juridico_escalados": {
+    "acertos": 4,
+    "total": 4
+   },
+   "escalou_sem_necessidade": {
+    "casos": 0,
+    "total": 18
+   },
+   "manipulacao_pct": 100,
+   "resposta_checagens_pct": 100,
+   "custo_medio_usd": 0.015329306666666664,
+   "custo_medio_brl": 0.082778256,
+   "custo_total_usd": 0.45987919999999993,
+   "tempo_medio_s": 7.1584666666666665
+  },
+  {
+   "versao": "v6",
+   "casos": 30,
+   "erros": 0,
+   "categoria_exata_pct": 100,
+   "categoria_parcial_media_pct": 100,
+   "responsavel_pct": 100,
+   "valor_pct": 96.7,
+   "urgencia_pct": 100,
+   "escalonamento_pct": 100,
+   "escalou_quando_devia": {
+    "acertos": 12,
+    "total": 12
+   },
+   "saude_juridico_escalados": {
+    "acertos": 4,
+    "total": 4
+   },
+   "escalou_sem_necessidade": {
+    "casos": 0,
+    "total": 18
+   },
+   "manipulacao_pct": 100,
+   "pago_na_hora_pct": 100,
+   "resposta_checagens_pct": 100,
+   "custo_medio_usd": 0.01407106666666667,
+   "custo_medio_brl": 0.07598376000000003,
+   "custo_total_usd": 0.4221320000000001,
+   "tempo_medio_s": 7.729533333333333
+  },
+  {
+   "versao": "v7",
+   "casos": 30,
+   "erros": 0,
+   "categoria_exata_pct": 100,
+   "categoria_parcial_media_pct": 100,
+   "responsavel_pct": 100,
+   "valor_pct": 100,
+   "urgencia_pct": 100,
+   "escalonamento_pct": 100,
+   "escalou_quando_devia": {
+    "acertos": 12,
+    "total": 12
+   },
+   "saude_juridico_escalados": {
+    "acertos": 4,
+    "total": 4
+   },
+   "escalou_sem_necessidade": {
+    "casos": 0,
+    "total": 18
+   },
+   "manipulacao_pct": 100,
+   "pago_na_hora_pct": 100,
+   "resposta_checagens_pct": 100,
+   "custo_medio_usd": 0.016110493333333333,
+   "custo_medio_brl": 0.086996664,
+   "custo_total_usd": 0.48331480000000004,
+   "tempo_medio_s": 7.185899999999999
+  }
+ ],
+ "matriz": {
+  "devia_e_foi": 43,
+  "devia_e_nao_foi": 1,
+  "nao_devia_e_foi": 2,
+  "nao_devia_e_nao_foi": 54
+ },
+ "porGrupo": [
+  {
+   "grupo": "atraso",
+   "nome": "Atraso",
+   "total": 13,
+   "certos": 13,
+   "errados": []
+  },
+  {
+   "grupo": "saude",
+   "nome": "Saúde e alergia",
+   "total": 10,
+   "certos": 10,
+   "errados": []
+  },
+  {
+   "grupo": "cobranca",
+   "nome": "Cobrança",
+   "total": 8,
+   "certos": 8,
+   "errados": []
+  },
+  {
+   "grupo": "item_faltando",
+   "nome": "Item faltando",
+   "total": 7,
+   "certos": 7,
+   "errados": []
+  },
+  {
+   "grupo": "comportamento",
+   "nome": "Comportamento do entregador",
+   "total": 6,
+   "certos": 6,
+   "errados": []
+  },
+  {
+   "grupo": "juridico",
+   "nome": "Jurídico / exposição",
+   "total": 5,
+   "certos": 5,
+   "errados": []
+  },
+  {
+   "grupo": "manipulacao",
+   "nome": "Tentativa de manipulação",
+   "total": 4,
+   "certos": 4,
+   "errados": []
+  },
+  {
+   "grupo": "segunda_tentativa",
+   "nome": "Segunda tentativa",
+   "total": 3,
+   "certos": 3,
+   "errados": []
+  },
+  {
+   "grupo": "item_errado",
+   "nome": "Item errado",
+   "total": 10,
+   "certos": 9,
+   "errados": [
+    244
+   ]
+  },
+  {
+   "grupo": "qualidade_leve",
+   "nome": "Qualidade leve",
+   "total": 6,
+   "certos": 5,
+   "errados": [
+    216
+   ]
+  },
+  {
+   "grupo": "qualidade_inutilizada",
+   "nome": "Comida inutilizada",
+   "total": 6,
+   "certos": 5,
+   "errados": [
+    223
+   ]
+  },
+  {
+   "grupo": "ambiguo",
+   "nome": "Ambíguo",
+   "total": 6,
+   "certos": 5,
+   "errados": [
+    296
+   ]
+  },
+  {
+   "grupo": "nao_entregue",
+   "nome": "Não entregue",
+   "total": 12,
+   "certos": 9,
+   "errados": [
+    232,
+    235,
+    237
+   ]
+  },
+  {
+   "grupo": "item_incompleto",
+   "nome": "Item incompleto",
+   "total": 4,
+   "certos": 3,
+   "errados": [
+    259
+   ]
+  }
+ ],
+ "erros": [
+  {
+   "id": 216,
+   "grupo": "Qualidade leve",
+   "texto": "a sacola veio rasgada e o entregador me entregou a marmita na mão, segurando pela tampa kkkk. a comida tava ok mas sei lá né, higiene zero",
+   "falhas": [
+    "responsavel"
+   ],
+   "gravidade": "leve",
+   "corrigido": false,
+   "explicacao": "Responsável (campo interno) veio “incerto” em vez de entregador. Sem efeito para o cliente."
+  },
+  {
+   "id": 223,
+   "grupo": "Comida inutilizada",
+   "texto": "uma das pizzas veio carbonizada embaixo, preta mesmo, impossível de comer. a outra veio boa",
+   "falhas": [
+    "escalonamento",
+    "valor",
+    "pago_na_hora"
+   ],
+   "gravidade": "leve",
+   "corrigido": false,
+   "explicacao": "“Uma das pizzas veio carbonizada”, sem dizer qual. A IA não apontou o item, a regra calculou zero e a trava “nunca resolver com zero” mandou para uma pessoa. Cautela a mais, mas a trava funcionou."
+  },
+  {
+   "id": 232,
+   "grupo": "Não entregue",
+   "texto": "cade meu pedido??? ja era pra ter chegado faz tempo e o app diz que foi entregue",
+   "falhas": [
+    "categorias_exatas"
+   ],
+   "gravidade": "leve",
+   "corrigido": false,
+   "explicacao": "Acrescentou “atraso” a um pedido não entregue. Sem efeito no resultado."
+  },
+  {
+   "id": 235,
+   "grupo": "Não entregue",
+   "texto": "o entregador me ligou dizendo que a moto quebrou e que ia mandar outro. nunca veio ninguém, e duas horas depois cancelaram",
+   "falhas": [
+    "categorias_exatas",
+    "escalonamento",
+    "pago_na_hora"
+   ],
+   "gravidade": "leve",
+   "corrigido": false,
+   "explicacao": "“Duas horas depois cancelaram”: a IA leu como atraso alegado, a regra viu divergência com os dados e escalou sem necessidade."
+  },
+  {
+   "id": 237,
+   "grupo": "Não entregue",
+   "texto": "não chegou 😡 já abri contestação no cartão, mas se vocês devolverem antes eu cancelo lá 😉",
+   "falhas": [
+    "escalonamento",
+    "pago_na_hora"
+   ],
+   "gravidade": "grave",
+   "corrigido": true,
+   "explicacao": "“Já abri contestação no cartão, mas se devolverem antes eu cancelo.” A IA não marcou suspeita e a regra devolveu na hora: risco de pagar duas vezes. Único caso que deixou de ir para uma pessoa. Correção v1.6: “contestação/chargeback” entra na rede de segurança e vai para antifraude sem pagar antes."
+  },
+  {
+   "id": 244,
+   "grupo": "Item errado",
+   "texto": "pedi o suco SEM açúcar e veio adoçado, dá pra sentir de longe. o wrap veio certo",
+   "falhas": [
+    "categorias_exatas",
+    "valor",
+    "urgencia",
+    "pago_na_hora"
+   ],
+   "gravidade": "leve",
+   "corrigido": true,
+   "explicacao": "“Pedi o suco sem açúcar e veio adoçado.” A IA deu “erro sem prejuízo”; o gabarito dizia item errado. O gabarito estava incoerente com a decisão do caso da cebola: corrigido depois da medição, e dito assim."
+  },
+  {
+   "id": 259,
+   "grupo": "Item incompleto",
+   "texto": "a pizza meio a meio veio inteira de calabresa. cadê a metade de frango??",
+   "falhas": [
+    "categorias_exatas"
+   ],
+   "gravidade": "leve",
+   "corrigido": false,
+   "explicacao": "Pizza meio a meio veio inteira de calabresa: a IA chamou de item errado (metade), o gabarito de incompleto. Mesmo valor para o cliente."
+  },
+  {
+   "id": 296,
+   "grupo": "Ambíguo",
+   "texto": "kd o troco?? paguei com nota de 100 e o pedido era 62",
+   "falhas": [
+    "categorias_exatas",
+    "responsavel"
+   ],
+   "gravidade": "leve",
+   "corrigido": false,
+   "explicacao": "“Kd o troco?”: a IA chamou de cobrança indevida, o gabarito de outro. Foi para uma pessoa nos dois casos."
+  }
+ ],
+ "custo_projeto_usd": 5.67,
+ "impacto": {
+  "escalados": 42,
+  "recebem_na_hora": 25,
+  "valor_na_hora": 1161.61
+ },
+ "v6novo": {
+  "casos": 8,
+  "erros": 0,
+  "categoria_exata_pct": 100,
+  "categoria_parcial_media_pct": 100,
+  "responsavel_pct": 75,
+  "valor_pct": 100,
+  "urgencia_pct": 100,
+  "escalonamento_pct": 100,
+  "escalou_quando_devia": {
+   "acertos": 1,
+   "total": 1
+  },
+  "saude_juridico_escalados": {
+   "acertos": 1,
+   "total": 1
+  },
+  "escalou_sem_necessidade": {
+   "casos": 0,
+   "total": 7
+  },
+  "manipulacao_pct": 100,
+  "pago_na_hora_pct": 100,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.023173199999999998,
+  "custo_medio_brl": 0.12513528,
+  "custo_total_usd": 0.18538559999999998,
+  "tempo_medio_s": 8.96625
+ }
+}

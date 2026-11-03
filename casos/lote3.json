@@ -1,0 +1,475 @@
+[
+ {
+  "id": 101,
+  "grupo": "combo_parcial",
+  "texto": "pedi um x-burguer e ele veio todo amassado, tá horrível, incomível",
+  "pedido": {
+   "pedido_id": "PED-1101",
+   "itens": [
+    {
+     "nome": "Combo X-burguer (lanche + batata + refri)",
+     "valor_unit": 39.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "item_incompleto",
+     "responsavel": "restaurante",
+     "itens": [
+      [
+       "Combo X-burguer (lanche + batata + refri)",
+       1
+      ]
+     ]
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [],
+   "urgencia": "media",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 19.95,
+    "cupom": 0,
+    "regras": [
+     "R-INC"
+    ],
+    "total": 44.89,
+    "reenvio": false,
+    "referencia": 0.0,
+    "pago_dinheiro": 19.95,
+    "pago_cupom": 0
+   }
+  },
+  "nota": "O caso da demo: só o lanche estragou; batata e refri ok. Parte do combo = incompleto (50%), sem taxa e sem cortesia.",
+  "conjunto": "novo"
+ },
+ {
+  "id": 102,
+  "grupo": "combo_parcial",
+  "texto": "a pizza do combo chegou virada, o recheio grudou todo na tampa. o refri veio de boa",
+  "pedido": {
+   "pedido_id": "PED-1102",
+   "itens": [
+    {
+     "nome": "Combo pizza média + refri 2L",
+     "valor_unit": 54.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 6.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "item_incompleto",
+     "responsavel": "entregador",
+     "itens": [
+      [
+       "Combo pizza média + refri 2L",
+       1
+      ]
+     ]
+    }
+   ],
+   "responsavel": "entregador",
+   "gatilhos": [],
+   "urgencia": "media",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 27.45,
+    "cupom": 0,
+    "regras": [
+     "R-INC"
+    ],
+    "total": 61.89,
+    "reenvio": false,
+    "referencia": 0.0,
+    "pago_dinheiro": 27.45,
+    "pago_cupom": 0
+   }
+  },
+  "nota": "Parte principal do combo inutilizada no transporte = incompleto (50%).",
+  "conjunto": "novo"
+ },
+ {
+  "id": 103,
+  "grupo": "combo_inteiro",
+  "texto": "o refri estourou dentro da sacola e encharcou tudo, o lanche e a batata viraram uma papa. não deu pra aproveitar nada",
+  "pedido": {
+   "pedido_id": "PED-1103",
+   "itens": [
+    {
+     "nome": "Combo X-burguer (lanche + batata + refri)",
+     "valor_unit": 39.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "qualidade_inutilizada",
+     "responsavel": "restaurante",
+     "itens": [
+      [
+       "Combo X-burguer (lanche + batata + refri)",
+       1
+      ]
+     ]
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [],
+   "urgencia": "media",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 44.89,
+    "cupom": 10,
+    "regras": [
+     "R-QI",
+     "R-TOTAL"
+    ],
+    "total": 44.89,
+    "reenvio": true,
+    "referencia": 0.0,
+    "pago_dinheiro": 44.89,
+    "pago_cupom": 10
+   }
+  },
+  "nota": "Controle: o combo INTEIRO se perdeu = pedido inteiro perdido (combo + taxa + cortesia, com opção de reenvio).",
+  "conjunto": "novo"
+ },
+ {
+  "id": 104,
+  "grupo": "combo_parcial",
+  "texto": "o combo veio sem o refrigerante",
+  "pedido": {
+   "pedido_id": "PED-1104",
+   "itens": [
+    {
+     "nome": "Combo X-burguer (lanche + batata + refri)",
+     "valor_unit": 39.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "item_incompleto",
+     "responsavel": "restaurante",
+     "itens": [
+      [
+       "Combo X-burguer (lanche + batata + refri)",
+       1
+      ]
+     ]
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [],
+   "urgencia": "media",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 19.95,
+    "cupom": 0,
+    "regras": [
+     "R-INC"
+    ],
+    "total": 44.89,
+    "reenvio": false,
+    "referencia": 0.0,
+    "pago_dinheiro": 19.95,
+    "pago_cupom": 0
+   }
+  },
+  "nota": "Controle do caso 31 com outra parte do combo.",
+  "conjunto": "novo"
+ },
+ {
+  "id": 105,
+  "grupo": "combo_controle",
+  "texto": "o brownie que eu pedi junto não veio, o combo veio certinho",
+  "pedido": {
+   "pedido_id": "PED-1105",
+   "itens": [
+    {
+     "nome": "Combo X-burguer (lanche + batata + refri)",
+     "valor_unit": 39.9,
+     "qtd": 1
+    },
+    {
+     "nome": "Brownie",
+     "valor_unit": 12.0,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "item_faltando",
+     "responsavel": "restaurante",
+     "itens": [
+      [
+       "Brownie",
+       1
+      ]
+     ]
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [],
+   "urgencia": "media",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 12.0,
+    "cupom": 0,
+    "regras": [
+     "R-FALT"
+    ],
+    "total": 56.89,
+    "reenvio": false,
+    "referencia": 0.0,
+    "pago_dinheiro": 12.0,
+    "pago_cupom": 0
+   }
+  },
+  "nota": "Controle: item separado do combo faltando = item faltando (valor inteiro do brownie).",
+  "conjunto": "novo"
+ },
+ {
+  "id": 106,
+  "grupo": "combo_parcial",
+  "texto": "pedi o combo com coca e mandaram guaraná. não é a mesma coisa né",
+  "pedido": {
+   "pedido_id": "PED-1106",
+   "itens": [
+    {
+     "nome": "Combo X-burguer com Coca-Cola",
+     "valor_unit": 39.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "item_detalhe",
+     "responsavel": "restaurante",
+     "itens": []
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [],
+   "urgencia": "baixa",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 0.0,
+    "cupom": 10,
+    "regras": [
+     "R-DET"
+    ],
+    "total": 44.89,
+    "reenvio": false,
+    "referencia": 0.0,
+    "pago_dinheiro": 0.0,
+    "pago_cupom": 10
+   }
+  },
+  "nota": "v7: bebida trocada no combo = erro sem prejuízo (cupom + desculpas).",
+  "conjunto": "novo"
+ },
+ {
+  "id": 107,
+  "grupo": "combo_saude",
+  "texto": "a salada da marmita fit veio com cheiro de estragado, nem encostei. o frango e o arroz tavam ok",
+  "pedido": {
+   "pedido_id": "PED-1107",
+   "itens": [
+    {
+     "nome": "Marmita fit (frango + arroz + salada)",
+     "valor_unit": 29.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "qualidade_saude",
+     "responsavel": "restaurante",
+     "itens": [
+      [
+       "Marmita fit (frango + arroz + salada)",
+       1
+      ]
+     ]
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [
+    "H2"
+   ],
+   "urgencia": "alta",
+   "manipulacao": false,
+   "vai_para_humano": true,
+   "esperado_regra": {
+    "dinheiro": 0.0,
+    "cupom": 0,
+    "regras": [
+     "R-QS"
+    ],
+    "total": 34.89,
+    "reenvio": false,
+    "referencia": 29.9,
+    "pago_dinheiro": 29.9,
+    "pago_cupom": 0
+   }
+  },
+  "nota": "Saúde em parte de um item composto: vai para uma pessoa; pela v1.4 a marmita (R$ 29,90) é devolvida na hora.",
+  "conjunto": "novo"
+ },
+ {
+  "id": 108,
+  "grupo": "combo_parcial",
+  "texto": "o combo veio sem a batata e o lanche chegou frio",
+  "pedido": {
+   "pedido_id": "PED-1108",
+   "itens": [
+    {
+     "nome": "Combo X-burguer (lanche + batata + refri)",
+     "valor_unit": 39.9,
+     "qtd": 1
+    }
+   ],
+   "taxa_entrega": 4.99,
+   "minutos_atraso": 0,
+   "status": "entregue",
+   "codigo_validado": false,
+   "cobrado_a_mais": 0.0,
+   "ja_reembolsado": 0.0,
+   "historico": {
+    "negativa_anterior_neste_pedido": false,
+    "reclamacoes_90d": 0
+   }
+  },
+  "gabarito": {
+   "categorias": [
+    {
+     "categoria": "item_incompleto",
+     "responsavel": "restaurante",
+     "itens": [
+      [
+       "Combo X-burguer (lanche + batata + refri)",
+       1
+      ]
+     ]
+    },
+    {
+     "categoria": "qualidade_leve",
+     "responsavel": "restaurante",
+     "itens": []
+    }
+   ],
+   "responsavel": "restaurante",
+   "gatilhos": [],
+   "urgencia": "media",
+   "manipulacao": false,
+   "vai_para_humano": false,
+   "esperado_regra": {
+    "dinheiro": 19.95,
+    "cupom": 10,
+    "regras": [
+     "R-INC",
+     "R-QL"
+    ],
+    "total": 44.89,
+    "reenvio": false,
+    "referencia": 0.0,
+    "pago_dinheiro": 19.95,
+    "pago_cupom": 10
+   }
+  },
+  "nota": "Duas categorias: incompleto (50%) + cupom pela comida fria.",
+  "conjunto": "novo"
+ }
+]

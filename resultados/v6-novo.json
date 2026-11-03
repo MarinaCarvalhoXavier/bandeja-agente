@@ -1,0 +1,1076 @@
+{
+ "versao": "v6-verif3",
+ "conjunto": "novo",
+ "modelo": "claude-opus-5-5",
+ "usd_brl": 5.4,
+ "data": "2026-11-02T21:01:27.405Z",
+ "metricas": {
+  "casos": 8,
+  "erros": 0,
+  "categoria_exata_pct": 100,
+  "categoria_parcial_media_pct": 100,
+  "responsavel_pct": 75,
+  "valor_pct": 100,
+  "urgencia_pct": 100,
+  "escalonamento_pct": 100,
+  "escalou_quando_devia": {
+   "acertos": 1,
+   "total": 1
+  },
+  "saude_juridico_escalados": {
+   "acertos": 1,
+   "total": 1
+  },
+  "escalou_sem_necessidade": {
+   "casos": 0,
+   "total": 7
+  },
+  "manipulacao_pct": 100,
+  "pago_na_hora_pct": 100,
+  "resposta_checagens_pct": 100,
+  "custo_medio_usd": 0.023173199999999998,
+  "custo_medio_brl": 0.12513528,
+  "custo_total_usd": 0.18538559999999998,
+  "tempo_medio_s": 8.96625
+ },
+ "casos": [
+  {
+   "id": 101,
+   "grupo": "combo_parcial",
+   "texto": "pedi um x-burguer e ele veio todo amassado, tá horrível, incomível",
+   "esperado": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_incompleto",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo X-burguer (lanche + batata + refri)",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "media",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o lanche (x-burguer) do combo chegou todo amassado e incomível; não menciona problema com a batata ou o refrigerante. Entrega sem atraso registrado.",
+     "o_que_falta_para_decidir": [
+      "Foto do lanche amassado e da embalagem",
+      "Confirmar se a batata e o refrigerante do combo chegaram em boas condições"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 19.95,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-INC",
+       "descricao": "Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri)",
+       "valor": 19.95,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 19.95,
+      "cupom": 0
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_incompleto. R-INC – Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri): R$ 19,95. Devolução: R$ 19,95 pelo meio de pagamento original. Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito que seu Combo X-burguer tenha chegado amassado, não é assim que queremos que seu pedido chegue. Já registramos a devolução de R$ 19,95 referente a esse combo, e o valor volta pelo mesmo meio de pagamento que você usou no pedido. Fique de olho no extrato ou na fatura nos próximos dias, e se o valor não aparecer, é só responder esta mensagem que a gente te ajuda.",
+    "uso": {
+     "classificar": {
+      "entrada": 278,
+      "saida": 564,
+      "cache_leitura": 0,
+      "cache_escrita": 3562,
+      "custo_usd": 0.030202,
+      "ms": 7034
+     },
+     "responder": {
+      "entrada": 290,
+      "saida": 173,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0048448,
+      "ms": 2801
+     },
+     "custo_usd": 0.0350468,
+     "custo_brl": 0.18925272000000004,
+     "ms_total": 9836
+    }
+   }
+  },
+  {
+   "id": 102,
+   "grupo": "combo_parcial",
+   "texto": "a pizza do combo chegou virada, o recheio grudou todo na tampa. o refri veio de boa",
+   "esperado": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "entregador",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 27.45,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 27.45,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": false,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_incompleto",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo pizza média + refri 2L",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "media",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que a pizza do combo chegou virada, com o recheio grudado na tampa; o refrigerante chegou em bom estado. Só parte do combo foi afetada; pizza virada pode indicar problema no transporte, sem pista clara da causa.",
+     "o_que_falta_para_decidir": [
+      "Foto da pizza e da embalagem",
+      "Informação sobre como a pizza foi acomodada na bag durante o transporte"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 27.45,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-INC",
+       "descricao": "Item incompleto (50%): 1x Combo pizza média + refri 2L",
+       "valor": 27.45,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 27.45,
+      "cupom": 0
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_incompleto. R-INC – Item incompleto (50%): 1x Combo pizza média + refri 2L: R$ 27,45. Devolução: R$ 27,45 pelo meio de pagamento original. Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Que pena que a pizza do seu Combo pizza média + refri 2L chegou virada, com o recheio grudado na tampa. Sentimos muito, não é assim que deveria chegar. Como parte do combo veio comprometida, devolvemos R$ 27,45, que voltam pelo mesmo meio de pagamento usado no pedido. Não precisa fazer nada: é só acompanhar o estorno no seu extrato nos próximos dias. Se tiver qualquer dúvida, é só responder esta mensagem.",
+    "uso": {
+     "classificar": {
+      "entrada": 278,
+      "saida": 676,
+      "cache_leitura": 0,
+      "cache_escrita": 3562,
+      "custo_usd": 0.032442,
+      "ms": 9863
+     },
+     "responder": {
+      "entrada": 285,
+      "saida": 194,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0052448,
+      "ms": 2706
+     },
+     "custo_usd": 0.0376868,
+     "custo_brl": 0.20350872,
+     "ms_total": 12569
+    }
+   }
+  },
+  {
+   "id": 103,
+   "grupo": "combo_inteiro",
+   "texto": "o refri estourou dentro da sacola e encharcou tudo, o lanche e a batata viraram uma papa. não deu pra aproveitar nada",
+   "esperado": {
+    "categorias": [
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 44.89,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_inutilizada"
+    ],
+    "responsavel": "incerto",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 44.89,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": false,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_inutilizada",
+       "responsavel": "incerto",
+       "itens_afetados": [
+        {
+         "nome": "Combo X-burguer (lanche + batata + refri)",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o refrigerante estourou dentro da sacola e encharcou o lanche e a batata, deixando o combo inteiro sem condição de consumo. Não há atraso registrado, e a causa (embalagem/vedação do restaurante ou manuseio no transporte) não está clara.",
+     "o_que_falta_para_decidir": [
+      "Foto da sacola e dos itens encharcados",
+      "Foto da lata/garrafa ou copo do refrigerante para verificar se houve falha de vedação ou dano por impacto"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 44.89,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QI",
+       "descricao": "Comida sem condição de consumo: 1x Combo X-burguer (lanche + batata + refri)",
+       "valor": 39.9,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-TOTAL",
+       "descricao": "Pedido inteiro perdido: taxa de entrega devolvida",
+       "valor": 4.99,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-TOTAL",
+       "descricao": "Cortesia (pedido inteiro perdido): cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": true,
+     "pago_na_hora": {
+      "dinheiro": 44.89,
+      "cupom": 10
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "incerto",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_inutilizada. R-QI – Comida sem condição de consumo: 1x Combo X-burguer (lanche + batata + refri): R$ 39,90. R-TOTAL – Pedido inteiro perdido: taxa de entrega devolvida: R$ 4,99. R-TOTAL – Cortesia (pedido inteiro perdido): cupom (só o maior vale): R$ 10,00. Devolução: R$ 44,89 pelo meio de pagamento original. Cupom: R$ 10,00 (validade 30 dias). Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Que chato, sentimos muito! Com o refri estourando na sacola, seu Combo X-burguer (lanche + batata + refri) chegou sem condição de consumo. Você pode escolher: refazemos e reenviamos o combo sem custo, se a loja conseguir, ou devolvemos R$ 44,89 (R$ 39,90 do combo + R$ 4,99 da entrega) no meio de pagamento original. Em qualquer opção, você também ganha de presente um cupom de R$ 10,00, válido por 30 dias. Responda esta mensagem dizendo se prefere o reenvio ou a devolução.",
+    "uso": {
+     "classificar": {
+      "entrada": 299,
+      "saida": 472,
+      "cache_leitura": 0,
+      "cache_escrita": 3562,
+      "custo_usd": 0.028446,
+      "ms": 5633
+     },
+     "responder": {
+      "entrada": 444,
+      "saida": 229,
+      "cache_leitura": 0,
+      "cache_escrita": 1124,
+      "custo_usd": 0.011976,
+      "ms": 3447
+     },
+     "custo_usd": 0.040422,
+     "custo_brl": 0.21827880000000002,
+     "ms_total": 9116
+    }
+   }
+  },
+  {
+   "id": 104,
+   "grupo": "combo_parcial",
+   "texto": "o combo veio sem o refrigerante",
+   "esperado": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_incompleto",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo X-burguer (lanche + batata + refri)",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente informa que o Combo X-burguer chegou sem o refrigerante; lanche e batata não foram mencionados como problema. Componente faltante de item composto, sem atraso registrado.",
+     "o_que_falta_para_decidir": [
+      "Foto do pedido recebido mostrando a ausência do refrigerante",
+      "Confirmação do restaurante sobre a montagem do combo"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 19.95,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-INC",
+       "descricao": "Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri)",
+       "valor": 19.95,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 19.95,
+      "cupom": 0
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_incompleto. R-INC – Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri): R$ 19,95. Devolução: R$ 19,95 pelo meio de pagamento original. Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Que chato receber o seu Combo X-burguer sem o refrigerante, sentimos muito por isso! Já registramos a devolução de R$ 19,95 referente ao combo incompleto, e o valor volta pelo mesmo meio de pagamento que você usou no pedido. O prazo para aparecer depende do seu banco ou operadora do cartão. Se precisar de mais alguma coisa, é só responder por aqui.",
+    "uso": {
+     "classificar": {
+      "entrada": 262,
+      "saida": 293,
+      "cache_leitura": 3562,
+      "cache_escrita": 0,
+      "custo_usd": 0.007620399999999999,
+      "ms": 2950
+     },
+     "responder": {
+      "entrada": 274,
+      "saida": 161,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0045408,
+      "ms": 2385
+     },
+     "custo_usd": 0.0121612,
+     "custo_brl": 0.06567048,
+     "ms_total": 5336
+    }
+   }
+  },
+  {
+   "id": 105,
+   "grupo": "combo_controle",
+   "texto": "o brownie que eu pedi junto não veio, o combo veio certinho",
+   "esperado": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 12,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_faltando"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 12,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_faltando",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Brownie",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente informa que o Brownie (1 unidade) não veio; o combo chegou correto. Pedido sem atraso e sem histórico de reclamações.",
+     "o_que_falta_para_decidir": [
+      "Foto do pedido recebido ou da embalagem/nota fiscal, se disponível"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 12,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-FALT",
+       "descricao": "Item faltando: 1x Brownie",
+       "valor": 12,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 12,
+      "cupom": 0
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_faltando. R-FALT – Item faltando: 1x Brownie: R$ 12,00. Devolução: R$ 12,00 pelo meio de pagamento original. Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Oi! Sentimos muito que o Brownie não tenha chegado junto com o seu pedido, ainda mais quando a sobremesa era parte do momento. Já resolvemos: vamos devolver R$ 12,00, o valor do Brownie, pelo mesmo meio de pagamento que você usou no pedido. Que bom saber que o combo chegou certinho! Agora é só acompanhar a devolução no seu meio de pagamento original. Se ela não aparecer ou se precisar de qualquer coisa, é só responder esta mensagem que a gente te ajuda.",
+    "uso": {
+     "classificar": {
+      "entrada": 312,
+      "saida": 249,
+      "cache_leitura": 3562,
+      "cache_escrita": 0,
+      "custo_usd": 0.006940399999999999,
+      "ms": 3116
+     },
+     "responder": {
+      "entrada": 251,
+      "saida": 212,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0054688,
+      "ms": 4047
+     },
+     "custo_usd": 0.012409199999999999,
+     "custo_brl": 0.06700968,
+     "ms_total": 7163
+    }
+   }
+  },
+  {
+   "id": 106,
+   "grupo": "combo_parcial",
+   "texto": "pedi o combo com coca e mandaram guaraná. não é a mesma coisa né",
+   "esperado": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "item_incompleto"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_incompleto",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo X-burguer com Coca-Cola",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente pediu o Combo X-burguer com Coca-Cola e recebeu guaraná no lugar da Coca; só a bebida do combo foi trocada.",
+     "o_que_falta_para_decidir": [
+      "Foto da bebida recebida"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 19.95,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-INC",
+       "descricao": "Item incompleto (50%): 1x Combo X-burguer com Coca-Cola",
+       "valor": 19.95,
+       "tipo": "dinheiro"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 19.95,
+      "cupom": 0
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_incompleto. R-INC – Item incompleto (50%): 1x Combo X-burguer com Coca-Cola: R$ 19,95. Devolução: R$ 19,95 pelo meio de pagamento original. Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Poxa, sentimos muito! Você pediu o Combo X-burguer com Coca-Cola e o combo não chegou como deveria. Entendemos totalmente que não é a mesma coisa. Por isso, já liberamos a devolução de R$ 19,95, que corresponde a 50% do valor do combo. O valor volta pelo mesmo meio de pagamento que você usou no pedido. Fique de olho no seu extrato e, se o valor não aparecer, é só responder esta mensagem que a gente te ajuda.",
+    "uso": {
+     "classificar": {
+      "entrada": 275,
+      "saida": 246,
+      "cache_leitura": 3562,
+      "cache_escrita": 0,
+      "custo_usd": 0.0067323999999999995,
+      "ms": 3360
+     },
+     "responder": {
+      "entrada": 285,
+      "saida": 195,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0052648,
+      "ms": 3672
+     },
+     "custo_usd": 0.0119972,
+     "custo_brl": 0.06478488,
+     "ms_total": 7032
+    }
+   }
+  },
+  {
+   "id": 107,
+   "grupo": "combo_saude",
+   "texto": "a salada da marmita fit veio com cheiro de estragado, nem encostei. o frango e o arroz tavam ok",
+   "esperado": {
+    "categorias": [
+     "qualidade_saude"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "obtido": {
+    "categorias": [
+     "qualidade_saude"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": true,
+    "gatilhos": [
+     "H2"
+    ],
+    "urgencia": "alta",
+    "manipulacao": false,
+    "dinheiro": 0,
+    "cupom": 0
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "qualidade_saude",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Marmita fit (frango + arroz + salada)",
+         "quantidade": 1
+        }
+       ]
+      }
+     ],
+     "gatilhos": [
+      {
+       "tipo": "saude",
+       "trecho": "a salada da marmita fit veio com cheiro de estragado"
+      }
+     ],
+     "confianca": "media",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "O cliente relata que a salada da marmita fit chegou com cheiro de estragado e diz que não a comeu. Frango e arroz estavam ok, então só um componente do item composto foi afetado, mas há possível risco à saúde.",
+     "o_que_falta_para_decidir": [
+      "Foto da salada e da embalagem",
+      "Confirmação se a salada vinha separada ou junto do frango e arroz na mesma embalagem"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 0,
+     "cupom": 0,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-QS",
+       "descricao": "Risco à saúde: decisão de uma pessoa",
+       "valor": 0,
+       "tipo": "pessoa"
+      }
+     ],
+     "valor_referencia_pessoa": 29.9,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 29.9,
+      "cupom": 0
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": true,
+     "gatilhos": [
+      {
+       "id": "H2",
+       "motivo": "Risco à saúde",
+       "origem": "ia",
+       "trecho": "a salada da marmita fit veio com cheiro de estragado"
+      }
+     ],
+     "urgencia": "alta",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: qualidade_saude. R-QS – Risco à saúde: decisão de uma pessoa. Sem devolução em dinheiro. Encaminhado para uma pessoa: H2 (Risco à saúde). Pago na hora: R$ 29,90; a pessoa decide o restante. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pela salada da sua Marmita fit (frango + arroz + salada) ter chegado com cheiro de estragado. Você fez muito bem em não consumir. Já devolvemos agora R$ 29,90, que voltam pelo mesmo meio de pagamento usado no pedido. Como se trata de algo ligado à qualidade e à saúde, uma pessoa da nossa equipe continua analisando o seu caso com atenção. Se quiser, responda esta mensagem com uma foto da salada; ela ajuda nessa análise.",
+    "uso": {
+     "classificar": {
+      "entrada": 287,
+      "saida": 714,
+      "cache_leitura": 3562,
+      "cache_escrita": 0,
+      "custo_usd": 0.0161404,
+      "ms": 9598
+     },
+     "responder": {
+      "entrada": 262,
+      "saida": 204,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0053528000000000004,
+      "ms": 3221
+     },
+     "custo_usd": 0.0214932,
+     "custo_brl": 0.11606328,
+     "ms_total": 12820
+    }
+   }
+  },
+  {
+   "id": 108,
+   "grupo": "combo_parcial",
+   "texto": "o combo veio sem a batata e o lanche chegou frio",
+   "esperado": {
+    "categorias": [
+     "item_incompleto",
+     "qualidade_leve"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 10
+   },
+   "obtido": {
+    "categorias": [
+     "item_incompleto",
+     "qualidade_leve"
+    ],
+    "responsavel": "restaurante",
+    "vai_para_humano": false,
+    "gatilhos": [],
+    "urgencia": "media",
+    "manipulacao": false,
+    "dinheiro": 19.95,
+    "cupom": 10
+   },
+   "acertos": {
+    "categorias_exatas": true,
+    "categorias_jaccard": 1,
+    "responsavel": true,
+    "escalonamento": true,
+    "valor": true,
+    "urgencia": true,
+    "manipulacao": true,
+    "pago_na_hora": true
+   },
+   "resposta": {
+    "C2_sem_culpar": true,
+    "C4_sem_valor_em_escalado": true,
+    "C6_sem_negativa": true,
+    "C7_tamanho": true
+   },
+   "resultado": {
+    "versao_prompt": "v6",
+    "modelo": "claude-opus-5-5",
+    "classificacao": {
+     "categorias": [
+      {
+       "categoria": "item_incompleto",
+       "responsavel": "restaurante",
+       "itens_afetados": [
+        {
+         "nome": "Combo X-burguer (lanche + batata + refri)",
+         "quantidade": 1
+        }
+       ]
+      },
+      {
+       "categoria": "qualidade_leve",
+       "responsavel": "restaurante",
+       "itens_afetados": []
+      }
+     ],
+     "gatilhos": [],
+     "confianca": "alta",
+     "atraso_alegado_min": null,
+     "itens_citados_fora_do_pedido": [],
+     "tentativa_manipulacao": {
+      "detectada": false,
+      "trecho": null
+     },
+     "resumo_para_atendente": "Cliente relata que o Combo X-burguer veio sem a batata e que o lanche chegou frio. Não houve atraso registrado, então o frio é atribuído ao restaurante.",
+     "o_que_falta_para_decidir": [
+      "Foto do conteúdo recebido mostrando a ausência da batata"
+     ]
+    },
+    "decisao": {
+     "versao_regras": "v1.4 (02/11/2026)",
+     "dinheiro": 19.95,
+     "cupom": 10,
+     "cupom_validade_dias": 30,
+     "linhas": [
+      {
+       "regra": "R-INC",
+       "descricao": "Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri)",
+       "valor": 19.95,
+       "tipo": "dinheiro"
+      },
+      {
+       "regra": "R-QL",
+       "descricao": "Qualidade (comida aproveitável): cupom (só o maior vale)",
+       "valor": 10,
+       "tipo": "cupom"
+      }
+     ],
+     "valor_referencia_pessoa": 0,
+     "opcao_reenvio": false,
+     "pago_na_hora": {
+      "dinheiro": 19.95,
+      "cupom": 10
+     },
+     "fica_para_pessoa": 0,
+     "vai_para_humano": false,
+     "gatilhos": [],
+     "urgencia": "media",
+     "responsavel_geral": "restaurante",
+     "manipulacao_registrada": false,
+     "justificativa_crm": "Categorias: item_incompleto + qualidade_leve. R-INC – Item incompleto (50%): 1x Combo X-burguer (lanche + batata + refri): R$ 19,95. R-QL – Qualidade (comida aproveitável): cupom (só o maior vale): R$ 10,00. Devolução: R$ 19,95 pelo meio de pagamento original. Cupom: R$ 10,00 (validade 30 dias). Decisão automática. Regras v1.4 (02/11/2026)."
+    },
+    "resposta_ao_cliente": "Sentimos muito pelo seu Combo X-burguer ter chegado sem a batata e com o lanche frio. Não é essa a experiência que queremos te entregar. Já devolvemos R$ 19,95 referentes ao combo incompleto, que voltam pelo mesmo meio de pagamento usado no pedido. Pelo lanche frio, deixamos para você um cupom de R$ 10,00, válido por 30 dias. Se preferir, em vez do cupom, você pode pedir a análise de um reembolso e uma pessoa da nossa equipe avalia. É só responder esta mensagem dizendo o que prefere.",
+    "uso": {
+     "classificar": {
+      "entrada": 269,
+      "saida": 304,
+      "cache_leitura": 3562,
+      "cache_escrita": 0,
+      "custo_usd": 0.0078684,
+      "ms": 4450
+     },
+     "responder": {
+      "entrada": 364,
+      "saida": 231,
+      "cache_leitura": 1124,
+      "cache_escrita": 0,
+      "custo_usd": 0.0063008000000000005,
+      "ms": 3407
+     },
+     "custo_usd": 0.0141692,
+     "custo_brl": 0.07651368,
+     "ms_total": 7858
+    }
+   }
+  }
+ ]
+}
