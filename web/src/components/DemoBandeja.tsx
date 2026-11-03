@@ -108,9 +108,9 @@ export function DemoBandeja() {
     setEsperandoIA(false);
     depois(inicio, () => setCartoes(1));
     // Uma etapa por vez, com tempo para ler cada uma antes da próxima.
-    depois(inicio + 1500, () => setCartoes(2));
-    depois(inicio + 3000, () => setCartoes(3));
-    depois(inicio + 4000, () => {
+    depois(inicio + 1000, () => setCartoes(2));
+    depois(inicio + 2000, () => setCartoes(3));
+    depois(inicio + 3000, () => {
       setMsgs((m) => [...m.filter((x) => x.tipo !== "digitando"), { tipo: "bot", texto: r.resposta_ao_cliente, hora: agora() }, { tipo: "card", r }]);
       setRodando(false);
     });
