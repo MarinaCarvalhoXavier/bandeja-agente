@@ -376,72 +376,78 @@ export function DemoBandeja() {
         )}
 
         <div className="bj-blocos">
-          {rodando && cartoes === 0 && (
-            <div className="bj-bloco esperando"><span className="bj-girando" />{esperandoIA ? "A IA está lendo a reclamação…" : "Lendo a reclamação…"}</div>
-          )}
+          {rodando && cartoes === 0 && <p className="bj-esperando"><span className="bj-girando" />{esperandoIA ? "A IA está lendo a reclamação…" : "Lendo a reclamação…"}</p>}
 
           {r && c && d && cartoes >= 1 && (
-            <div className="bj-bloco ia">
-              <div className="bj-bloco-cab"><h3><em className="bj-bj-mono">IA</em>1 · O que a IA entendeu</h3><span className="t bj-mono">{(r.uso.classificar.ms / 1000).toFixed(1)} s</span></div>
-              <div className="bj-chips">
-                {c.categorias.map((x, i) => <span key={i} className="bj-chip">{NOMES_CATEGORIA[x.categoria] ?? x.categoria}{x.itens_afetados.length > 0 && <small>{x.itens_afetados.map((it) => it.nome).join(", ")}</small>}</span>)}
-                <span className="bj-chip">confiança {c.confianca}</span>
-              </div>
-              {c.gatilhos.map((g, i) => <p key={i} className="bj-nota">alerta de {NOMES_ALERTA[g.tipo]} → <q>{g.trecho}</q></p>)}
-              {c.tentativa_manipulacao.detectada && <p className="bj-nota">tentativa de manipulação detectada e ignorada{c.tentativa_manipulacao.trecho ? <> → <q>{c.tentativa_manipulacao.trecho}</q></> : null}</p>}
-              <p className="bj-nota">{c.resumo_para_atendente}</p>
-              {fotosNaConversa > 0 && <p className="bj-nota">{fotosNaConversa === 1 ? "1 foto anexada" : `${fotosNaConversa} fotos anexadas`}: esta versão não analisa imagens; a foto vai junto como prova para quem revisar.</p>}
-            </div>
+            <article className="bj-etapa ia">
+              <header className="bj-etapa-cab">
+                <span className="bj-etapa-n bj-mono">01</span>
+                <div><p className="bj-etapa-quem bj-mono">IA · {(r.uso.classificar.ms / 1000).toFixed(1).replace(".", ",")} s</p><h3>O que a IA entendeu</h3></div>
+              </header>
+              <dl className="bj-dados">
+                {c.categorias.map((x, i) => (
+                  <div key={i}><dt>{i === 0 ? "Problema" : "E também"}</dt><dd>{NOMES_CATEGORIA[x.categoria] ?? x.categoria}{x.itens_afetados.length > 0 && <span className="sub"> · {x.itens_afetados.map((it) => it.nome).join(", ")}</span>}</dd></div>
+                ))}
+                <div><dt>Confiança</dt><dd>{c.confianca}</dd></div>
+                {c.gatilhos.map((g, i) => <div key={`g${i}`}><dt>Alerta</dt><dd>{NOMES_ALERTA[g.tipo]}<q>{g.trecho}</q></dd></div>)}
+                {c.tentativa_manipulacao.detectada && <div><dt>Manipulação</dt><dd>detectada e ignorada{c.tentativa_manipulacao.trecho ? <q>{c.tentativa_manipulacao.trecho}</q> : null}</dd></div>}
+                {fotosNaConversa > 0 && <div><dt>Foto</dt><dd>{fotosNaConversa === 1 ? "1 anexada" : `${fotosNaConversa} anexadas`}; vai como prova, esta versão não analisa imagens</dd></div>}
+                <div><dt>Resumo</dt><dd className="resumo">{c.resumo_para_atendente}</dd></div>
+              </dl>
+            </article>
           )}
-          {r && c && d && cartoes === 1 && <div className="bj-bloco esperando"><span className="bj-girando" />A regra está calculando…</div>}
+          {r && c && d && cartoes === 1 && <p className="bj-esperando"><span className="bj-girando" />A regra está calculando…</p>}
 
           {r && d && cartoes >= 2 && (
-            <div className="bj-bloco regra">
-              <div className="bj-bloco-cab"><h3><em className="bj-bj-mono">REGRA</em>2 · O que a regra decidiu</h3><span className="t bj-mono">código · {d.versao_regras.split(" ")[0]}</span></div>
-              <div className="bj-contas bj-mono">
+            <article className="bj-etapa regra">
+              <header className="bj-etapa-cab">
+                <span className="bj-etapa-n bj-mono">02</span>
+                <div><p className="bj-etapa-quem bj-mono">Regra em código · {d.versao_regras.split(" ")[0]}</p><h3>O que a regra decidiu</h3></div>
+              </header>
+              <div className="bj-recibo bj-mono">
                 {d.linhas.map((l, i) => (
-                  <span key={i} style={{ display: "contents" }}>
-                    <span className="r">{l.regra}</span><span>{l.descricao}</span>
-                    <span className="v">{l.tipo === "dinheiro" ? brl(l.valor) : l.tipo === "cupom" ? `cupom ${brl(l.valor)}` : l.tipo === "pessoa" ? "pessoa" : "—"}</span>
-                  </span>
+                  <div key={i} className="lin"><span className="r">{l.regra}</span><span className="dsc">{l.descricao}</span>
+                    <span className="v">{l.tipo === "dinheiro" ? brl(l.valor) : l.tipo === "cupom" ? `cupom ${brl(l.valor)}` : l.tipo === "pessoa" ? "pessoa" : "—"}</span></div>
                 ))}
               </div>
-              <div className="bj-numeros">
+              <div className="bj-resultado">
                 {d.vai_para_humano ? (
                   <>
-                    <div className={`bj-num ${d.pago_na_hora.dinheiro > 0 ? "destaque" : ""}`}><small>Pago na hora</small><strong>{brl(d.pago_na_hora.dinheiro)}</strong></div>
-                    <div className="bj-num"><small>Cupom</small><strong>{d.pago_na_hora.cupom ? brl(d.pago_na_hora.cupom) : "—"}</strong></div>
-                    <div className="bj-num"><small>Pessoa decide</small><strong className="menor">{d.pago_na_hora.dinheiro || d.pago_na_hora.cupom ? (d.fica_para_pessoa ? `+ ${brl(d.fica_para_pessoa)} e o resto` : "o que for além") : "tudo"}</strong></div>
+                    <div className="principal"><small>Pago na hora</small><strong>{brl(d.pago_na_hora.dinheiro)}</strong></div>
+                    <div><small>Cupom</small><b>{d.pago_na_hora.cupom ? brl(d.pago_na_hora.cupom) : "—"}</b></div>
+                    <div><small>Fica com a pessoa</small><b>{d.pago_na_hora.dinheiro || d.pago_na_hora.cupom ? (d.fica_para_pessoa ? `+ ${brl(d.fica_para_pessoa)}` : "o que for além") : "a decisão toda"}</b></div>
                   </>
                 ) : (
                   <>
-                    <div className={`bj-num ${d.dinheiro > 0 ? "destaque" : ""}`}><small>Devolução</small><strong>{brl(d.dinheiro)}</strong></div>
-                    <div className="bj-num"><small>{d.opcao_reenvio ? "Cortesia" : "Cupom"}</small><strong>{d.cupom ? brl(d.cupom) : "—"}</strong></div>
-                    <div className="bj-num"><small>Ou</small><strong className="menor">{d.opcao_reenvio ? "reenvio sem custo" : "—"}</strong></div>
+                    <div className="principal"><small>Devolução</small><strong>{brl(d.dinheiro)}</strong></div>
+                    <div><small>{d.opcao_reenvio ? "Cortesia" : "Cupom"}</small><b>{d.cupom ? brl(d.cupom) : "—"}</b></div>
+                    <div><small>Ou</small><b>{d.opcao_reenvio ? "reenvio sem custo" : "—"}</b></div>
                   </>
                 )}
               </div>
-              <p className="bj-pedido bj-mono">dados do pedido usados (não da mensagem): total {brl(pedidoAtual.itens.reduce((s, i) => s + i.valor_unit * i.qtd, 0) + pedidoAtual.taxa_entrega)} · atraso {pedidoAtual.minutos_atraso ? `${pedidoAtual.minutos_atraso} min` : "nenhum"} · código {pedidoAtual.codigo_validado ? "validado" : "não validado"}</p>
-            </div>
+              <p className="bj-rodape-etapa bj-mono">Dados do pedido, não da mensagem: total {brl(pedidoAtual.itens.reduce((s, i) => s + i.valor_unit * i.qtd, 0) + pedidoAtual.taxa_entrega)} · atraso {pedidoAtual.minutos_atraso ? `${pedidoAtual.minutos_atraso} min` : "nenhum"} · código {pedidoAtual.codigo_validado ? "validado" : "não validado"}</p>
+            </article>
           )}
-          {r && d && cartoes === 2 && <div className="bj-bloco esperando"><span className="bj-girando" />Decidindo quem resolve…</div>}
+          {r && d && cartoes === 2 && <p className="bj-esperando"><span className="bj-girando" />Decidindo quem resolve…</p>}
 
           {r && c && d && cartoes >= 3 && (
-            <div className={`bj-bloco ${d.vai_para_humano ? "pessoa" : "auto"}`}>
-              <div className="bj-bloco-cab"><h3><em className="bj-bj-mono">{d.vai_para_humano ? "PESSOA" : "AUTOMÁTICO"}</em>3 · Quem resolve</h3><span className="t bj-mono">urgência {d.urgencia}</span></div>
+            <article className={`bj-etapa ${d.vai_para_humano ? "pessoa" : "auto"}`}>
+              <header className="bj-etapa-cab">
+                <span className="bj-etapa-n bj-mono">03</span>
+                <div><p className="bj-etapa-quem bj-mono">Urgência {d.urgencia === "media" ? "média" : d.urgencia}</p><h3>{d.vai_para_humano ? "Vai para uma pessoa" : "Resolvido sozinho"}</h3></div>
+                {d.vai_para_humano && d.fila && <span className="bj-fila-tag">{d.fila}</span>}
+              </header>
               {d.vai_para_humano ? (
-                <>
-                  {d.fila && <p className="bj-fila bj-mono">→ fila: {d.fila}</p>}
-                  <ul className="bj-gat">
-                    {d.gatilhos.map((g) => <li key={g.id}><span className="h bj-mono">{g.id}</span><span>{g.motivo}{g.trecho && <q>{g.trecho}</q>}<span className="origem">{ORIGEM[g.origem]}</span></span></li>)}
-                  </ul>
-                  <p className="bj-nota">{d.pago_na_hora.dinheiro || d.pago_na_hora.cupom ? "O cliente já recebeu o que a regra calculou; a pessoa decide o resto, com o caso resumido." : "Nada é pago antes de uma pessoa olhar: há dúvida sobre o que é devido."}{c.o_que_falta_para_decidir.length > 0 && <> Falta: {c.o_que_falta_para_decidir.join(", ")}.</>}</p>
-                </>
+                <dl className="bj-dados">
+                  {d.gatilhos.map((g) => <div key={g.id}><dt className="bj-mono">{g.id}</dt><dd>{g.motivo}{g.trecho && <q>{g.trecho}</q>}<span className="origem">{ORIGEM[g.origem]}</span></dd></div>)}
+                  <div><dt>Cliente</dt><dd>{d.pago_na_hora.dinheiro || d.pago_na_hora.cupom ? "já recebeu o que a regra calculou; a pessoa decide o resto, com o caso resumido" : "nada é pago antes de uma pessoa olhar: há dúvida sobre o que é devido"}</dd></div>
+                  {c.o_que_falta_para_decidir.length > 0 && <div><dt>Falta</dt><dd>{c.o_que_falta_para_decidir.join(", ")}</dd></div>}
+                </dl>
               ) : (
-                <p className="bj-nota" style={{ marginTop: 0 }}>Resolvido sozinho. Nenhum risco que exija uma pessoa: a regra concedeu e o cliente recebe na hora.</p>
+                <p className="bj-texto">Nenhum risco que exija uma pessoa: a regra concedeu e o cliente recebe na hora.</p>
               )}
-              <details className="bj-crm"><summary>justificativa pronta para o CRM</summary><p>{d.justificativa_crm}</p></details>
-            </div>
+              <details className="bj-crm"><summary>Justificativa pronta para o CRM</summary><p>{d.justificativa_crm}</p></details>
+            </article>
           )}
         </div>
 
