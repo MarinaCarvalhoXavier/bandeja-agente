@@ -474,3 +474,15 @@ html[data-aba]:not([data-aba="prototipo"]) .bj-embed .painel .celula.meh { borde
 /* modo foto: sem animação nem transição */
 html.bj-foto-modo *, html.bj-foto-modo *::before, html.bj-foto-modo *::after { animation: none !important; transition: none !important; }
 html.bj-foto-modo .bj-conversa { scroll-behavior: auto; }
+
+/* Lista de reclamações: só o título, cada tema num cartão com contorno (a mensagem aparece no celular). */
+.bj-lista { gap: 6px; }
+.bj-lista button, .bj-lista li:last-child button { border: 1px solid #ddd5cb; background: #fff; border-radius: 12px; padding: 11px 36px 11px 14px; transition: border-color .15s, background .15s; }
+.bj-lista button:hover:not(:disabled) { background: #fff; border-color: var(--laranja); }
+.bj-lista button[aria-pressed="true"] { background: var(--laranja-claro); border-color: var(--laranja); }
+.bj-lista button::after { top: 50%; margin-top: -10px; right: 14px; }
+.bj-lista .tit { padding-right: 0; }
+.bj-grupo-tit { margin-bottom: 8px; }
+/* telas estreitas: a lista ocupa a largura toda e não esmaece no fim (lá não há rolagem interna) */
+@media (max-width: 1040px) { .bj-opcoes-cheio { width: auto; -webkit-mask-image: none; mask-image: none; padding: 0; } }
+@media (max-width: 1040px) { .bj-trilho { height: 52px; } }

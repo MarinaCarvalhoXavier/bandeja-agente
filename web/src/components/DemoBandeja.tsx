@@ -121,6 +121,8 @@ export function DemoBandeja() {
     // Traz o palco inteiro para a tela (fora do portfólio; dentro do iframe quem rola é a página de fora).
     const el = palco.current;
     if (el && window.self === window.top) { const t = el.getBoundingClientRect(); if (t.top < 0 || t.bottom > window.innerHeight) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    // Dentro do portfólio: pede para a página de fora rolar até o palco (no celular a lista some e o palco sobe).
+    else if (el && window.innerWidth <= 1040) requestAnimationFrame(() => window.parent?.postMessage({ tipo: "bandeja-rolar", topo: Math.round(el.getBoundingClientRect().top + window.scrollY) }, "*"));
     const fotos: Msg[] = comFotos ? fotosPendentes.map((url) => ({ tipo: "foto", url, hora: agora() })) : [];
     setFotosNaConversa(fotos.length); setFotosPendentes([]);
     setMsgs([SAUDACAO, ...fotos, { tipo: "cli", texto: textoCliente, hora: agora(), lida: false }]);
@@ -258,7 +260,6 @@ export function DemoBandeja() {
                   <li key={id}>
                     <button aria-pressed={selecionado === id} disabled={rodando} onClick={() => escolherExemplo(id)}>
                       <span className="tit">{e.titulo}</span>
-                      <span className="trecho">“{e.texto}”</span>
                     </button>
                   </li>
                 );
