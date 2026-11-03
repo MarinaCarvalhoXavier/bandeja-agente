@@ -541,3 +541,7 @@ html.bj-foto-modo .bj-conversa { scroll-behavior: auto; }
 .bj-grupo-tit::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--g); grid-row: 1; align-self: center; }
 .bj-grupo-tit b { grid-column: 2; grid-row: 1; }
 .bj-grupo-tit span { grid-column: 2; }
+/* Entrada mais visível: o cartão vem de mais longe e desacelera ao chegar */
+.bj-etapa { animation: bj-desliza-longe .9s cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes bj-desliza-longe { from { opacity: 0; transform: translateX(140px); } 40% { opacity: 1; } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .bj-etapa { animation: none; } }
