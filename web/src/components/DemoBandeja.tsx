@@ -8,12 +8,8 @@ import { tocar } from "@/lib/som";
 const brl = (v: number) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const agora = () => new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
 
-// Exemplos agrupados pelo caminho que cada um mostra.
-const GRUPOS: { titulo: string; legenda: string; cor: string; ids: number[] }[] = [
-  { titulo: "Resolve sozinho", legenda: "a regra concede na hora", cor: "#1f7a3d", ids: [21, 11, 7] },
-  { titulo: "Vai para uma pessoa", legenda: "risco alto ou dúvida", cor: "#b07800", ids: [41, 44, 63, 97] },
-  { titulo: "Tenta enganar a IA", legenda: "o valor sai da regra mesmo assim", cor: "#7a4cd9", ids: [49, 92] },
-];
+// Exemplos numa lista só (sem grupos), na ordem: resolve sozinho, vai para uma pessoa, tenta enganar a IA.
+const EXEMPLOS_IDS = [21, 11, 7, 41, 44, 63, 97, 49, 92];
 const NOMES_CATEGORIA: Record<string, string> = {
   item_faltando: "Item faltando", item_incompleto: "Item incompleto", item_errado: "Item errado", item_detalhe: "Erro sem prejuízo",
   qualidade_leve: "Qualidade (dá para comer)", qualidade_inutilizada: "Comida inutilizada", qualidade_saude: "Risco à saúde",
@@ -72,6 +68,10 @@ export function DemoBandeja() {
   const [fotosPendentes, setFotosPendentes] = useState<string[]>([]); // anexadas antes de enviar o texto
   const [fotosNaConversa, setFotosNaConversa] = useState(0);
   const inputFoto = useRef<HTMLInputElement>(null);
+  const inputTexto = useRef<HTMLInputElement>(null);
+  // Como no primeiro protótipo: "Exemplos" (gravados) ou "Tentar você mesmo" (escreve no celular e chama a IA).
+  const [modo, setModo] = useState<"exemplos" | "escrever">("exemplos");
+  const [pedidoAberto, setPedidoAberto] = useState(false);
   const palco = useRef<HTMLElement>(null);
   // Pílulas numa linha só: arrastar com o mouse rola para o lado (no toque, o deslizar já é nativo).
   const trilhoRapidas = useRef<HTMLDivElement>(null);
@@ -262,14 +262,17 @@ export function DemoBandeja() {
       <div className="bj-opcoes">
        <div className="bj-opcoes-cheio" aria-hidden={!listaAberta}>
         <div className="bj-opcoes-cab">
-          <h2>Escolha uma reclamação</h2>
+          <h2>{modo === "exemplos" ? "Escolha uma reclamação" : "Escreva a sua"}</h2>
           {(res || rodando) && <button className="bj-recolher" onClick={() => setListaAberta(false)} aria-label="Recolher a lista">‹</button>}
         </div>
-        {GRUPOS.map((g) => (
-          <div key={g.titulo} className="bj-grupo" style={{ ["--g" as string]: g.cor }}>
-            <p className="bj-grupo-tit"><b>{g.titulo}</b><span>{g.legenda}</span></p>
+        <div className="bj-modo" role="group" aria-label="Modo">
+          <button aria-pressed={modo === "exemplos"} onClick={() => setModo("exemplos")}>Exemplos</button>
+          <button aria-pressed={modo === "escrever"} onClick={() => { setModo("escrever"); setSelecionado(null); requestAnimationFrame(() => inputTexto.current?.focus({ preventScroll: true })); }}>Tentar você mesmo</button>
+        </div>
+        {modo === "exemplos" ? (
+          <>
             <ul className="bj-lista">
-              {g.ids.map((id) => {
+              {EXEMPLOS_IDS.map((id) => {
                 const e = dados.exemplos.find((x) => x.id === id)!;
                 return (
                   <li key={id}>
@@ -280,15 +283,41 @@ export function DemoBandeja() {
                 );
               })}
             </ul>
-          </div>
-        ))}
-        <div className="bj-ou">
-          <label htmlFor="ped">Ou escreva a sua no celular, sobre este pedido:</label>
-          <select id="ped" value={pedidoLivre} onChange={(e) => { setPedidoLivre(Number(e.target.value)); setSelecionado(null); }}>
-            {dados.pedidos.map((p) => <option key={p.id} value={p.id}>{p.nome}</option>)}
-          </select>
-        </div>
-        <p className="bj-dica">Os exemplos mostram uma execução real gravada. A sua mensagem (ou “testar com a IA agora”) chama a IA de verdade: ~8 s. Pode tentar enganá-la. As respostas às pílulas do chat são roteirizadas.</p>
+            <p className="bj-dica">Cada exemplo mostra uma execução real gravada. Em “Tentar você mesmo”, a IA responde de verdade.</p>
+          </>
+        ) : (
+          <>
+            <p className="bj-ou-tit">Sobre qual pedido (fictício)?</p>
+            <div className={`bj-pedido ${pedidoAberto ? "aberto" : ""}`}>
+              {(() => {
+                const atual = dados.pedidos.find((p) => p.id === pedidoLivre)!;
+                const [nome, detalhe] = atual.nome.split(" · ");
+                return (
+                  <button type="button" className="bj-pedido-atual" aria-expanded={pedidoAberto} aria-controls="bj-pedido-opcoes" disabled={rodando} onClick={() => setPedidoAberto((v) => !v)}>
+                    <span className="tit">{nome}</span>
+                    {detalhe && <span className="trecho">{detalhe}</span>}
+                    <svg className="bj-pedido-seta" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </button>
+                );
+              })()}
+              <ul id="bj-pedido-opcoes" className="bj-pedido-opcoes" hidden={!pedidoAberto}>
+                {dados.pedidos.filter((p) => p.id !== pedidoLivre).map((p) => {
+                  const [nome, detalhe] = p.nome.split(" · ");
+                  return (
+                    <li key={p.id}>
+                      <button type="button" onClick={() => { setPedidoLivre(p.id); setSelecionado(null); setPedidoAberto(false); inputTexto.current?.focus({ preventScroll: true }); }}>
+                        <span className="tit">{nome}</span>
+                        {detalhe && <span className="trecho">{detalhe}</span>}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <p className="bj-escrever-passo">Escreva a reclamação no celular, do jeito que um cliente escreveria, e envie. A IA responde de verdade em ~8 s.</p>
+            <p className="bj-dica">Pode tentar enganá-la: o valor sai da regra de qualquer jeito. Não escreva dados pessoais. As respostas às pílulas do chat são roteirizadas.</p>
+          </>
+        )}
        </div>
        <button className="bj-trilho" onClick={() => setListaAberta(true)} aria-label="Escolher outra reclamação" tabIndex={listaAberta ? -1 : 0}>
          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5h12M4 10h12M4 15h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
@@ -356,7 +385,7 @@ export function DemoBandeja() {
                 <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.6l1.2-1.7c.3-.5.8-.8 1.4-.8h2.6c.6 0 1.1.3 1.4.8L15.9 6h1.6A2.5 2.5 0 0 1 20 8.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5z" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12.3" r="3.3" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
               </button>
               <input ref={inputFoto} type="file" accept="image/*" hidden onChange={(e) => { const f = e.target.files?.[0]; if (ultimoCard && !rodando) fotoDepoisDaResposta(f); else anexarFoto(f); e.target.value = ""; }} />
-              <input aria-label="Escreva sua reclamação" placeholder="Escreva aqui…" value={texto} maxLength={600} onChange={(e) => setTexto(e.target.value)} disabled={rodando} />
+              <input ref={inputTexto} aria-label="Escreva sua reclamação" placeholder="Escreva aqui…" value={texto} maxLength={600} onChange={(e) => setTexto(e.target.value)} disabled={rodando} />
               <button className="bj-enviar" aria-label="Enviar" disabled={rodando || texto.trim().length < 3}>↑</button>
             </form>
             <div className="bj-home" aria-hidden />
